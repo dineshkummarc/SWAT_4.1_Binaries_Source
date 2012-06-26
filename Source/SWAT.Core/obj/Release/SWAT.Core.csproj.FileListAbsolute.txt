@@ -1,0 +1,6 @@
+C:\SWAT\trunk\bin\Release\SWAT.user.config
+C:\SWAT\trunk\bin\Release\SWAT.Core.dll.config
+C:\SWAT\trunk\bin\Release\SWAT.Core.dll
+C:\SWAT\trunk\SWAT.Core\obj\Release\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT.Core\obj\Release\SWAT.Core.csproj.ResolveComReference.cache
+C:\SWAT\trunk\SWAT.Core\obj\Release\SWAT.Core.dll

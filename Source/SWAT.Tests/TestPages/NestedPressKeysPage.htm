@@ -1,0 +1,40 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Nested Tab Navigation Page</title>
+	</head>
+	<body>
+        <div id="header">
+            <h5 id="warningHeader">TRY NOT TO MODIFY PAGE. IF YOU MUST MODIFY IT PLEASE ADD THE ELEMENTS TO THE END.</h5>
+        </div>
+        <div id="focusableElementsDiv" style="border-width:1px; border-style:dashed; border-color:Navy;" >
+            <div>This area contains tab-focusable elements:</div>
+            <label id="TextBoxLabel" >Text</label>
+            <input type="text" id="focusableTextBox" />
+            <br />
+            <label id="CheckBoxLabel" >Check</label>
+            <input type="checkbox" id="focusableCheckBox" />
+            <br />
+            <label id="SelectBoxLabel" >Select</label>
+            <select id="focusableSelectBox">
+                <option id="yesOption" value="yes">Yes</option>
+                <option id="noOption" value="no">No</option>
+            </select>
+            <br />
+            <label id="HyperLinkLabel" >Link</label>
+            <a href="TestPage.htm" id="swatTestPageLink">SWAT Test Page</a>
+            <br />
+            <label id="RadioLabel" >Radio</label>
+                <label id="YesLabel">Yes</label><input type="radio" id="yesRadio" name="focusableRadioButton" value="Yes" />
+                <label id="NoLabel">No</label><input type="radio" id="noRadio" name="focusableRadioButton" value="No" />
+            <br />
+            <label id="ButtonLabel" >Button</label>
+            <input type="button" id="focusableButton" value="Click Me" />
+        </div>
+        <br />
+	    <div id="pressKeysFrameDiv" style="border-width:1px; border-style:dashed; border-color:Navy;" >
+            <div>This area contains the PressKeys event test page:</div>
+            <iframe src="FrameA.htm"></iframe>
+        </div>
+	</body>
+</html>

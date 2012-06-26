@@ -1,0 +1,5 @@
+C:\SWAT\trunk\bin\Debug\SWAT.DynamicHelp.dll
+C:\SWAT\trunk\bin\Debug\SWAT.DynamicHelp.pdb
+C:\SWAT\trunk\SWAT.DynamicHelp\obj\Debug\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT.DynamicHelp\obj\Debug\SWAT.DynamicHelp.dll
+C:\SWAT\trunk\SWAT.DynamicHelp\obj\Debug\SWAT.DynamicHelp.pdb

@@ -1,0 +1,6 @@
+C:\SWAT\trunk\bin\Debug\SWAT.user.config
+C:\SWAT\trunk\bin\Debug\SWAT.Fitnesse.dll
+C:\SWAT\trunk\bin\Debug\SWAT.Fitnesse.pdb
+C:\SWAT\trunk\SWAT.Fitnesse\obj\Debug\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT.Fitnesse\obj\Debug\SWAT.Fitnesse.dll
+C:\SWAT\trunk\SWAT.Fitnesse\obj\Debug\SWAT.Fitnesse.pdb

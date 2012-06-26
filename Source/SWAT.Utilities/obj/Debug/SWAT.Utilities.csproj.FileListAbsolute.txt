@@ -1,0 +1,5 @@
+C:\SWAT\trunk\bin\Debug\SWAT.Utilities.dll
+C:\SWAT\trunk\bin\Debug\SWAT.Utilities.pdb
+C:\SWAT\trunk\SWAT.Utilities\obj\Debug\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT.Utilities\obj\Debug\SWAT.Utilities.dll
+C:\SWAT\trunk\SWAT.Utilities\obj\Debug\SWAT.Utilities.pdb

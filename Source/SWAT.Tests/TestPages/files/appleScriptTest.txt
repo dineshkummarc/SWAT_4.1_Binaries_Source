@@ -1,0 +1,6 @@
+tell application "Safari"
+	open location "www.google.com"
+	tell application "System Events" to tell process "Safari" to set value of attribute "AXMain" of window 1 to true
+	delay 3
+	return name of document 1
+end tell

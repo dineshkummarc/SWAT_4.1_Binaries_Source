@@ -1,0 +1,6 @@
+C:\SWAT\trunk\bin\Debug\SWAT.user.config
+C:\SWAT\trunk\bin\Debug\SWAT.Auto_Complete.dll
+C:\SWAT\trunk\bin\Debug\SWAT.Auto_Complete.pdb
+C:\SWAT\trunk\SWAT.Auto_Complete\obj\Debug\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT.Auto_Complete\obj\Debug\SWAT.Auto_Complete.dll
+C:\SWAT\trunk\SWAT.Auto_Complete\obj\Debug\SWAT.Auto_Complete.pdb

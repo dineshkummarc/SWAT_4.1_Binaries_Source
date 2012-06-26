@@ -1,0 +1,1 @@
+1. (InternetExplorer) Must check 'Allow active content to run in files on My Computer' under tools - Advandced. 

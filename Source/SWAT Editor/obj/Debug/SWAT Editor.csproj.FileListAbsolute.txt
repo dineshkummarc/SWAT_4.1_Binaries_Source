@@ -1,0 +1,41 @@
+C:\SWAT\trunk\bin\Debug\SWAT.user.config
+C:\SWAT\trunk\bin\Debug\SWAT Editor.exe.config
+C:\SWAT\trunk\bin\Debug\SWAT Editor.exe
+C:\SWAT\trunk\bin\Debug\SWAT Editor.pdb
+C:\SWAT\trunk\SWAT Editor\obj\Debug\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT Editor.csproj.ResolveComReference.cache
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.AboutForm.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.DDEditor.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.DDEditorForm.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.BrowserSettings.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.CommandEditor.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.CommandList.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.DatabaseSettings.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.DBBuilder.DBBuilder.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.DBBuilder.ColumnEditor.ColumnEditor.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.EditorSettings.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.Explorer.Explorer.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.FitnesseSettings.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.Options_Control.OptionsControl.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.ScreenshotSettings.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.SwatSettings.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.FindReplaceForm.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.FitnesseEngine.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Recorder.AssertionForm.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.Recorder.BeginRecordingDialog.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.TextEditor.TextEditor.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.CreateSnippetForm.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.WorkSpaceTree.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.DBBuilderForm.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.MainForm.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.OpenWindows.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.OptionsForm2.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Properties.Resources.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.RecorderFloatingToolbar.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.ReportBugForm.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.Controls.SaveDialog.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT_Editor.UserInputPopup.resources
+C:\SWAT\trunk\SWAT Editor\obj\Debug\GenerateResource.read.1.tlog
+C:\SWAT\trunk\SWAT Editor\obj\Debug\GenerateResource.write.1.tlog
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT Editor.exe
+C:\SWAT\trunk\SWAT Editor\obj\Debug\SWAT Editor.pdb

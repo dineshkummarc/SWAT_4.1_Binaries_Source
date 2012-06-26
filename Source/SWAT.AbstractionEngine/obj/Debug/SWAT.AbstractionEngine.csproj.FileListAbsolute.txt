@@ -1,0 +1,6 @@
+C:\SWAT\trunk\bin\Debug\SWAT.user.config
+C:\SWAT\trunk\bin\Debug\SWATAbstractionEngine.dll
+C:\SWAT\trunk\bin\Debug\SWATAbstractionEngine.pdb
+C:\SWAT\trunk\SWAT.AbstractionEngine\obj\Debug\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT.AbstractionEngine\obj\Debug\SWATAbstractionEngine.dll
+C:\SWAT\trunk\SWAT.AbstractionEngine\obj\Debug\SWATAbstractionEngine.pdb

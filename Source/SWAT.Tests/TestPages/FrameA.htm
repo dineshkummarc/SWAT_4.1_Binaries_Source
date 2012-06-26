@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>SWAT Test Page</title>
+	</head>
+	<script type="text/javascript" >
+	    function processOnKeyUp()
+	    {
+	        var div = document.getElementById('divTxtBox1');
+	        div.innerHTML = "keyup";
+	    }
+
+	    function processOnKeyDown()
+	    {
+	        var div = document.getElementById('divTxtBox2');
+	        div.innerHTML = "keydown";
+	    }
+
+	    function processOnKeyPress()
+	    {
+	        var div = document.getElementById('divTxtBox3');
+	        div.innerHTML = "keypress";
+	    }
+	</script>
+	<body>
+	    <table>
+	    <tr>
+	        <td><input type="text" id="txtBox1" onkeyup="processOnKeyUp()" tabindex="1"/></td>
+	        <td><div id="divTxtBox1"></div></td>
+	    </tr>
+	    <tr>
+	        <td><input type="text" id="txtBox2" onkeydown="processOnKeyDown()" tabindex="2"/></td>
+	        <td><div id="divTxtBox2"></div></td>
+	    </tr>
+	    <tr>
+	        <td><input type="text" id="txtBox3" onkeypress="processOnKeyPress()" tabindex="3"/></td>
+	        <td><div id="divTxtBox3"></div></td>
+	    </tr>
+	    <tr>
+	        <td><input type="text" id="txtBox4" tabindex="4"/></td>
+	    </tr>
+	    </table>
+   	</body>
+</html>

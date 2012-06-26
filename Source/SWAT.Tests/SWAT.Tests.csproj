@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2695DBA7-57B4-4456-903F-7675DCABCCB9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SWAT.Tests</RootNamespace>
+    <AssemblyName>SWAT.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>http://localhost/SWAT.Tests/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="fit, Version=1.8.3183.38421, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\fit.dll</HintPath>
+    </Reference>
+    <Reference Include="fitSharp, Version=1.9.4126.29127, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\fitSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SHDocVw, Version=1.1.0.0, Culture=neutral, PublicKeyToken=e946295fdb1a818d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Interop.SHDocVw.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.9.10348, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=10.2.0.100, Culture=neutral, PublicKeyToken=89b483f429c47342">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BrowserTestFixture.cs" />
+    <Compile Include="CommandLine\CommandLineTestFixture.cs" />
+    <Compile Include="Configuration\ConfigurationItemTests.cs" />
+    <Compile Include="Database\BaseDatabaseTestFixture.cs" />
+    <Compile Include="Database\MSSQLTests.cs" />
+    <Compile Include="Database\OracleTests.cs" />
+    <Compile Include="DOMInteraction\AssertElementExists\AssertElementExistsTests.cs" />
+    <Compile Include="DOMInteraction\AssertElementExists\ChromeTests.cs" />
+    <Compile Include="DOMInteraction\AssertElementExists\SafariTests.cs" />
+    <Compile Include="DOMInteraction\AssertElementExists\FireFoxTests.cs" />
+    <Compile Include="DOMInteraction\AssertElementExists\InternetExplorerTests.cs" />
+    <Compile Include="DOMInteraction\AssertElementIsActive\AssertElementIsActiveTests.cs" />
+    <Compile Include="DOMInteraction\AssertElementIsActive\ChromeTests.cs" />
+    <Compile Include="DOMInteraction\AssertElementIsActive\FireFoxTests.cs" />
+    <Compile Include="DOMInteraction\AssertElementIsActive\InternetExplorerTests.cs" />
+    <Compile Include="DOMInteraction\AssertElementIsActive\SafariTests.cs" />
+    <Compile Include="DOMInteraction\AssertJSDialogContent\ChromeTests.cs" />
+    <Compile Include="DOMInteraction\AssertJSDialogContent\SafariTests.cs" />
+    <Compile Include="DOMInteraction\GetElementAttribute\ChromeTests.cs" />
+    <Compile Include="DOMInteraction\GetElementAttribute\SafariTests.cs" />
+    <Compile Include="DOMInteraction\SetElementAttribute\ChromeTests.cs" />
+    <Compile Include="DOMInteraction\SetElementAttribute\SafariTests.cs" />
+    <Compile Include="DOMInteraction\StimulateElement\ChromeTests.cs" />
+    <Compile Include="DOMInteraction\StimulateElement\SafariTests.cs" />
+    <Compile Include="Fitnesse\FitTests.cs" />
+    <Compile Include="Fitnesse\SlimTests.cs" />
+    <Compile Include="InformativeExceptions\ChromeTests.cs" />
+    <Compile Include="InformativeExceptions\SafariTests.cs" />
+    <Compile Include="InformativeExceptions\FireFoxTests.cs" />
+    <Compile Include="InformativeExceptions\InternetExplorerTests.cs" />
+    <Compile Include="JQueryRunScript\ChromeTests.cs" />
+    <Compile Include="JQueryRunScript\FireFoxTests.cs" />
+    <Compile Include="JQueryRunScript\InternetExplorerTests.cs" />
+    <Compile Include="JQueryRunScript\JQueryRunScriptTestFixture.cs" />
+    <Compile Include="JQueryRunScript\SafariTests.cs" />
+    <Compile Include="Navigation\AssertBrowserDoesNotExist\ChromeTests.cs" />
+    <Compile Include="Navigation\AssertBrowserDoesNotExist\SafariTests.cs" />
+    <Compile Include="Navigation\AssertBrowserExists\AssertBrowserExistsTestFixture.cs" />
+    <Compile Include="Navigation\AssertBrowserExists\ChromeTests.cs" />
+    <Compile Include="Navigation\AssertBrowserExists\FirefoxTests.cs" />
+    <Compile Include="Navigation\AssertBrowserExists\InternetExplorerTests.cs" />
+    <Compile Include="Navigation\AssertBrowserExists\SafariTests.cs" />
+    <Compile Include="Navigation\AssertBrowserType\AssertBrowserTypeTestFixture.cs" />
+    <Compile Include="Navigation\AssertBrowserType\ChromeTests.cs" />
+    <Compile Include="Navigation\AssertBrowserType\SafariTests.cs" />
+    <Compile Include="Navigation\AssertBrowserType\FireFoxTests.cs" />
+    <Compile Include="Navigation\AssertBrowserType\InternetExplorerTests.cs" />
+    <Compile Include="Navigation\AssertTopWindow\AssertTopWindowTestFixture.cs" />
+    <Compile Include="Navigation\AssertTopWindow\ChromeTests.cs" />
+    <Compile Include="Navigation\AssertTopWindow\FireFoxTests.cs" />
+    <Compile Include="Navigation\AssertTopWindow\InternetExplorerTests.cs" />
+    <Compile Include="Navigation\AssertTopWindow\SafariTests.cs" />
+    <Compile Include="Navigation\AttachToWindow\ChromeTests.cs" />
+    <Compile Include="Navigation\AttachToWindow\SafariTests.cs" />
+    <Compile Include="Navigation\ClickJSDialog\ChromeTests.cs" />
+    <Compile Include="Navigation\ClickJSDialog\SafariTests.cs" />
+    <Compile Include="Navigation\GetLocation\ChromeTests.cs" />
+    <Compile Include="Navigation\GetLocation\SafariTests.cs" />
+    <Compile Include="Navigation\GetWindowTitle\ChromeTests.cs" />
+    <Compile Include="Navigation\GetWindowTitle\SafariTests.cs" />
+    <Compile Include="Navigation\KillAllOpenBrowsers\ChromeTests.cs" />
+    <Compile Include="Navigation\KillAllOpenBrowsers\SafariTests.cs" />
+    <Compile Include="Navigation\OpenNavigateCloseBrowser\ChromeTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Navigation\OpenNavigateCloseBrowser\FireFoxTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Navigation\OpenNavigateCloseBrowser\InternetExplorerTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Navigation\OpenNavigateCloseBrowser\OpenNavigateCloseBrowserTestFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Navigation\OpenNavigateCloseBrowser\SafariTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Navigation\RefreshBrowser\ChromeTests.cs" />
+    <Compile Include="Navigation\RefreshBrowser\SafariTests.cs" />
+    <Compile Include="Navigation\SetWindowPosition\ChromeTests.cs" />
+    <Compile Include="Navigation\SetWindowPosition\SafariTests.cs" />
+    <Compile Include="Performance\InternetExplorerTest.cs" />
+    <Compile Include="Performance\PerformanceTestFixture.cs" />
+    <Compile Include="PressKeys\ChromeTests.cs" />
+    <Compile Include="PressKeys\SafariTests.cs" />
+    <Compile Include="PressKeys\VisuallyImpairedUsers\ChromeTests.cs" />
+    <Compile Include="PressKeys\VisuallyImpairedUsers\FireFoxTests.cs" />
+    <Compile Include="PressKeys\VisuallyImpairedUsers\InternetExplorerTests.cs" />
+    <Compile Include="PressKeys\VisuallyImpairedUsers\SafariTests.cs" />
+    <Compile Include="PressKeys\VisuallyImpairedUsers\VisuallyImpairedUserTestFixture.cs" />
+    <Compile Include="RunScript\ChromeTests.cs" />
+    <Compile Include="RunScript\SafariTests.cs" />
+    <Compile Include="ScreenShots\ChromeTests.cs" />
+    <Compile Include="ScreenShots\SafariTests.cs" />
+    <Compile Include="ScreenShots\FireFoxTests.cs" />
+    <Compile Include="ScreenShots\InternetExplorerTests.cs" />
+    <Compile Include="TestPages\files\testC#script.cs" />
+    <Compile Include="ProcessKiller.cs" />
+    <Compile Include="UnitTests\AssertSWATVersionNumTestFixture.cs" />
+    <Compile Include="Navigation\AttachToNonBrowserWindow\AttachToNonBrowserWindowTestFixture.cs" />
+    <Compile Include="UnitTests\ChromeUnitTestFixture.cs" />
+    <Compile Include="UnitTests\CommandModifierTestFixture.cs" />
+    <Compile Include="DOMInteraction\AssertJSDialogContent\AssertJSDialogContentTestFixture.cs" />
+    <Compile Include="DOMInteraction\AssertJSDialogContent\FireFoxTests.cs" />
+    <Compile Include="DOMInteraction\AssertJSDialogContent\InternetExplorerTests.cs" />
+    <Compile Include="Navigation\AssertBrowserDoesNotExist\FireFoxTests.cs" />
+    <Compile Include="Navigation\AssertBrowserDoesNotExist\AssertBrowserDoesNotExistTestFixture.cs" />
+    <Compile Include="Navigation\AssertBrowserDoesNotExist\InternetExplorerTests.cs" />
+    <Compile Include="Navigation\AttachToWindow\AttachToWindowTestFixture.cs" />
+    <Compile Include="Navigation\ClickJSDialog\FireFoxTests.cs" />
+    <Compile Include="Navigation\ClickJSDialog\ClickJSDialogTestFixture.cs" />
+    <Compile Include="Navigation\ClickJSDialog\InternetExplorerTests.cs" />
+    <Compile Include="Navigation\GetLocation\FireFoxTests.cs" />
+    <Compile Include="Navigation\GetLocation\InternetExplorerTests.cs" />
+    <Compile Include="Navigation\GetLocation\GetLocationTestFixture.cs" />
+    <Compile Include="Navigation\GetWindowTitle\GetWindowTitleTestFixture.cs" />
+    <Compile Include="Navigation\GetWindowTitle\FireFoxTests.cs" />
+    <Compile Include="Navigation\GetWindowTitle\InternetExplorerTests.cs" />
+    <Compile Include="Navigation\KillAllOpenBrowsers\FireFoxTests.cs" />
+    <Compile Include="Navigation\KillAllOpenBrowsers\KillAllOpenBrowsersTestFixture.cs" />
+    <Compile Include="Navigation\KillAllOpenBrowsers\InternetExplorerTests.cs" />
+    <Compile Include="Navigation\AttachToWindow\FireFoxTests.cs" />
+    <Compile Include="Navigation\AttachToWindow\InternetExplorerTests.cs" />
+    <Compile Include="Navigation\CrashBrowser\InternetExplorerTests.cs" />
+    <Compile Include="Navigation\CrashBrowser\CrashBrowserTestFixture.cs" />
+    <Compile Include="Navigation\RefreshBrowser\FireFoxTests.cs" />
+    <Compile Include="Navigation\RefreshBrowser\InternetExplorerTests.cs" />
+    <Compile Include="Navigation\RefreshBrowser\RefreshBrowserTestFixture.cs" />
+    <Compile Include="UnitTests\ComparisonTestFixture.cs" />
+    <Compile Include="Database\DatabaseTests.cs" />
+    <Compile Include="UnitTests\ExpressionTestFixture.cs" />
+    <Compile Include="DOMInteraction\GetElementAttribute\FireFoxTests.cs" />
+    <Compile Include="DOMInteraction\GetElementAttribute\GetElementAttributeTests.cs" />
+    <Compile Include="DOMInteraction\GetElementAttribute\InternetExplorerTests.cs" />
+    <Compile Include="InformativeExceptions\InformativeExceptionsTestFixture.cs" />
+    <Compile Include="PressKeys\FireFoxTests.cs" />
+    <Compile Include="PressKeys\InternetExplorerTests.cs" />
+    <Compile Include="PressKeys\PressKeysTestFixture.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunScript\FireFoxTests.cs" />
+    <Compile Include="RunScript\InternetExplorerTests.cs" />
+    <Compile Include="RunScript\RunScriptTests.cs" />
+    <Compile Include="ScreenShots\ScreenShotTestFixture.cs" />
+    <Compile Include="DOMInteraction\SetElementAttribute\FireFoxTests.cs" />
+    <Compile Include="DOMInteraction\SetElementAttribute\InternetExplorerTests.cs" />
+    <Compile Include="DOMInteraction\SetElementAttribute\SetElementAttributeTests.cs" />
+    <Compile Include="Navigation\SetWindowPosition\FireFoxTests.cs" />
+    <Compile Include="Navigation\SetWindowPosition\InternetExplorerTests.cs" />
+    <Compile Include="Navigation\SetWindowPosition\SetWindowPositionTests.cs" />
+    <Compile Include="DOMInteraction\StimulateElement\FireFoxTests.cs" />
+    <Compile Include="DOMInteraction\StimulateElement\InternetExplorerTests.cs" />
+    <Compile Include="DOMInteraction\StimulateElement\StimulateElementTests.cs" />
+    <Compile Include="Fitnesse\FitnesseTestFixture.cs" />
+    <Compile Include="Configuration\UserSettingsTestFixture.cs" />
+    <Compile Include="UnitTests\HtmlStringTestFixture.cs" />
+    <Compile Include="UnitTests\InternetExplorerUnitTestFixture.cs" />
+    <Compile Include="UnitTests\JSSHConnectionTestFixture.cs" />
+    <Compile Include="UnitTests\KeyboardInputTestFixture.cs" />
+    <Compile Include="Navigation\AttachToNonBrowserWindow\MacOSAttachToNonBrowserWindowTestFixture.cs" />
+    <Compile Include="UnitTests\PSRCommandTests.cs" />
+    <Compile Include="UnitTests\ScreenShotTestFixture.cs" />
+    <Compile Include="UnitTests\SetCurrentWindowHandleTestFixture.cs" />
+    <Compile Include="Navigation\AttachToNonBrowserWindow\WindowsAttachToNonBrowserWindowTestFixture.cs" />
+    <Compile Include="UnitTests\WindowsTestFixture.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Notes.txt" />
+    <Content Include="TestPages\AnotherInnerIframe.html" />
+    <Content Include="TestPages\bottomFrame.html" />
+    <Content Include="TestPages\CharacterTestPage.htm" />
+    <Content Include="TestPages\ElementsWithSpecialCharactersPage.htm" />
+    <Content Include="TestPages\NestedPressKeysPage.htm" />
+    <Content Include="TestPages\SightLessUserTestPage.htm" />
+    <Content Include="TestPages\multipleTextboxPage.html" />
+    <Content Include="TestPages\LongModalDialog.htm" />
+    <Content Include="TestPages\DialogWhileLoading.htm" />
+    <Content Include="TestPages\files\testJavaScript.js" />
+    <Content Include="TestPages\files\top_section_expanded.jpg" />
+    <Content Include="TestPages\IECrasherPage.htm" />
+    <Content Include="TestPages\iFrameSample.html" />
+    <Content Include="TestPages\KeyEventsTestPage.htm" />
+    <Content Include="TestPages\leftFrame.html" />
+    <Content Include="TestPages\MainFrame.html" />
+    <Content Include="TestPages\NestedFramesTestPage.html" />
+    <Content Include="TestPages\NoWindowTitle.htm" />
+    <Content Include="TestPages\OnBeforeUnload.htm" />
+    <Content Include="TestPages\OnChangeFrame.htm" />
+    <Content Include="TestPages\OnChangeTestPage.htm" />
+    <Content Include="TestPages\PageSpecialCharacters.htm" />
+    <Content Include="TestPages\PageToCloseWindow.htm" />
+    <Content Include="TestPages\Dialog.htm" />
+    <Content Include="TestPages\FrameA.htm" />
+    <Content Include="TestPages\FramesetHeader.htm" />
+    <Content Include="TestPages\FramesetTestPage.htm" />
+    <Content Include="TestPages\GoogleTestPage.htm" />
+    <Content Include="TestPages\PageThatHangs.htm" />
+    <Content Include="TestPages\SelectBoxPerformanceTestPage.htm" />
+    <Content Include="TestPages\OlderDoctypePage.htm" />
+    <Content Include="TestPages\SlowAspPage.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="TestPages\SlowLoadingAspPage.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="TestPages\SlowLoadingJavascriptPage.htm" />
+    <Content Include="TestPages\SpanishCharactersPage.html" />
+    <Content Include="TestPages\StimulateElement.htm">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="TestPages\SwatPerfTest.html" />
+    <Content Include="TestPages\testonblur.html" />
+    <Content Include="TestPages\testonblur.js" />
+    <Content Include="TestPages\TestOpenWindowPage.htm">
+    </Content>
+    <Content Include="TestPages\TestPage.htm">
+    </Content>
+    <Content Include="TestPages\topFrame.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SWAT.Tests.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TestPages\files\fw4.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SWAT Editor\SWAT Editor.csproj">
+      <Project>{2BEFCE7A-A936-4C62-9404-E342F10FB23D}</Project>
+      <Name>SWAT Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SWAT.AbstractionEngine\SWAT.AbstractionEngine.csproj">
+      <Project>{08A87CCA-432F-4B90-AED8-6DA6FC5E6EC3}</Project>
+      <Name>SWAT.AbstractionEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SWAT.Console\SWAT.Console.csproj">
+      <Project>{B92DF438-69C0-4C4A-8CF3-B4FBD3B6218B}</Project>
+      <Name>SWAT.Console</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SWAT.Core\SWAT.Core.csproj">
+      <Project>{8EA71CD5-5A95-4CFA-9C71-F89FB6AFD1AE}</Project>
+      <Name>SWAT.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SWAT.Database\SWAT.DataAccess.csproj">
+      <Project>{087194EA-BE8F-4E19-A18E-B1D3A625B1EA}</Project>
+      <Name>SWAT.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SWAT.Fitnesse\SWAT.Fitnesse.csproj">
+      <Project>{AA9BB2B7-D223-4DB9-990D-6CD4FEE796E9}</Project>
+      <Name>SWAT.Fitnesse</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SWAT.Utilities\SWAT.Utilities.csproj">
+      <Project>{576638EB-FC9E-49F4-AE55-C31DD3CFEE11}</Project>
+      <Name>SWAT.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.10.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2008 Express</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Database\TestFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

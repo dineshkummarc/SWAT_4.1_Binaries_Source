@@ -1,0 +1,5 @@
+C:\SWAT\trunk\bin\Debug\SWAT.NCover.dll
+C:\SWAT\trunk\bin\Debug\SWAT.NCover.pdb
+C:\SWAT\trunk\SWAT.NCover\obj\Debug\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT.NCover\obj\Debug\SWAT.NCover.dll
+C:\SWAT\trunk\SWAT.NCover\obj\Debug\SWAT.NCover.pdb

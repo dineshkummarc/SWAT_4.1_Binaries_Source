@@ -1,0 +1,3 @@
+C:\SWAT\trunk\bin\Release\SWAT.DataAccess.dll
+C:\SWAT\trunk\SWAT.Database\obj\Release\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT.Database\obj\Release\SWAT.DataAccess.dll

@@ -1,0 +1,165 @@
+﻿<html>
+<head>
+    <style type="text/css">
+
+
+h1 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #039;
+    font-family: Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+}
+
+a:link, a:visited {
+    color: #0000AA;
+    text-decoration: underline;
+}
+
+    </style>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+
+
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<link href="http://localhost/jsunit/css/jsUnitStyle.css" rel="stylesheet" 
+    type="text/css" />
+	<script type="text/javascript" src="http://localhost/javascript/stimulateElement.js"></script>
+    <script type="text/javascript" src="http://localhost/jsunit/app/jsUnitCore.js"></script>	
+    <script type="text/javascript">
+
+        var counter = 0;
+        
+        window.onerror = function() {
+            document.getElementById('txtErrorProduced').value = "PASSED";
+            setPassedText('error');
+            return true;
+        }
+
+        window.onload = function() {
+            setPassedTextOnLoad();
+            return true;
+        }
+
+        window.onunload = function() {
+            setPassedTextOnUnLoad();
+            return true;
+        }
+
+        window.onresize = function() {
+            setPassedText("resize");
+        }
+
+        function setPassedText(eventName) {
+            counter++;
+		    document.getElementById('txtPassed').value = "PASSED " + counter;
+		    document.getElementById('txtEventName').value = eventName;
+		    return true;
+		}
+
+		function setPassedTextOnLoad() {
+		    document.getElementById('txtPassed').value = "ONLOAD PASSED";
+		    //document.getElementById('txtEventName').value = "OnLoad";
+		}
+
+		function setPassedTextOnUnLoad() {
+		    document.getElementById('txtPassed').value = "UNLOAD PASSED";
+		    //document.getElementById('txtEventName').value = "OnLoad";
+		}
+
+		function alertBoxOk() {
+		    // Should click yes for the tests
+		    if (alert("This alert box should be closed by SWAT"))
+		        setPassedText();
+		}
+
+		function alertBoxCancel() {
+		    // Should click yes for the tests
+		    if (!(alert("This alert box should be closed by SWAT")))
+		        setPassedText();
+		}
+
+		function setPassedTextOnError() {
+		    document.getElementById('txtErrorProduced').value = "PASSED";
+		    return true;
+		}
+		
+		function stimulateLinkThroughButton(){
+			var element = document.getElementById('lnkClick');
+			assertNotNull(element);
+			var result = stimulateElement('click', element);
+		}
+
+		function simulateAbort() {
+		    testDiv.innerHTML = "<img id='imgTest2' src='broken_image_link.jpg' onabort='setPassedTxt('OnAbort')'/>";
+		    var element = document.getElementById('imgTest2');
+		    assertNotNull(element);
+		    var result = stimulateElement('abort', element);
+		}
+
+		
+    </script>
+    <script type="text/javascript">
+        function produceError() {
+            
+        }
+    </script>
+    
+    </head>
+    <body>
+	
+<h1>
+    stimulateElement Tests</h1>
+<p>
+    This page contains test for SWAT&#39;s stimulateElement command for the Google 
+    Chrome extension.
+</p>
+<div id="TestStimulateElement">
+    <div>
+        <p id="p1innDivB" class="class1">
+        </p>
+        <a id="lnkClick" href="http://www.google.com" onclick="setPassedText()">OnClick 
+        Link</a>
+        <br />
+        <input id="btnClick" onclick="setPassedText('OnClick')" type="submit" value="onClick" />
+        <br />
+        <input id="btnDoubleClick" ondblclick="setPassedText('OnDblClick')" type="submit" value="onDblClick" />&nbsp;
+        <br />      
+        <input id="btnError" onclick="produceError()" type="submit" value="Produce an error" />&nbsp;
+        <br />  
+        <input id="btnAbort" onclick="simulateAbort()" type="submit" value="Abort Image" />&nbsp;
+        <br />
+        <input id="btnAlertOk" onclick="alertBoxOk()" type="submit" value="Alert OK" />&nbsp;
+        <br />  
+        <input id="btnAlertCancel" onclick="alertBoxCancel()" type="submit" value="Alert CANCEL" />&nbsp;
+        <br />  
+        <input id="btnStimulateLink" onclick="stimulateLinkThroughButton()" 
+            type="submit" value="stimulateOnClick" />
+        <input id="txtPassed" type="text" value="FAILED" />
+        <input id="txtEventName" type="text" value="Name of the event fired" onresize="this.value = 'resize'" />
+        <input id="txtErrorProduced" type="text" value="" />
+    </div>
+    <div>
+        <input id="txtTest" type="text" onfocus="setPassedText('OnFocus')" onblur="setPassedText('OnBlur')" 
+            onkeydown="setPassedText('OnKeyDown')" onkeypress="setPassedText('OnKeyPress')" onkeyup="setPassedText('OnKeyUp')" 
+            onmousedown="setPassedText('OnMouseDown')" onmouseout="setPassedText('OnMouseOut')" onchange="setPassedText('OnChange')"
+            onmouseover="setPassedText('OnMouseOver')" onmouseup="setPassedText('OnMouseUp')"
+            onselect="setPassedText('OnSelect')" value="Fire events here"/>
+        <br />    
+        <img id="imgTest" onmousemove="setPassedText('OnMouseMove')" alt="Ultimate Software Logo" 
+            src="http://ultimatesoftware.com/images/top_section_expanded.jpg" onabort="setPassedTxt('OnAbort')" />
+        <br />
+        <form id="submitForm" action="../../TestPages/StimulateElement.htm" onreset="setPassedText();" onsubmit="setPassedText(); return true;" >    
+        </form>
+        <select id="selectBox" 
+            onfocus="setPassedText('OnFocus')" 
+            onblur="setPassedText('OnBlur')" 
+            onchange="setPassedText('OnChange')"
+        >
+            <option id="optionYes" value="1">Yes</option>
+            <option id="optionNo" value="0">No</option>
+        </select>
+    </div>
+    <div id ="testDiv"></div>
+</div>
+</body>
+</html>

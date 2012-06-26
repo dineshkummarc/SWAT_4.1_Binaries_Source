@@ -1,0 +1,23 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>Select Box Performance Test Page</title>
+
+    <script language="javascript" type="text/javascript">
+        function populateOptions() {
+            var selectBox = document.getElementById('largeDropdown');
+            for (var i = 0; i <= 7000; i++) {
+                var option = document.createElement('option');
+                option.setAttribute('value', 'val' + i);
+                option.appendChild(document.createTextNode('opt' + i));
+                selectBox.appendChild(option);
+            }
+        }
+    </script>
+
+</head>
+<body onload="populateOptions();">
+    <select id="largeDropdown">
+    </select>
+</body>
+</html>

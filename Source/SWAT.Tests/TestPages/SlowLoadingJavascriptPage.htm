@@ -1,0 +1,18 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Slow Loading Javascript Page</title>
+        <script type="text/javascript">
+            var d = new Date();
+            var now = d.getTime();
+            var timeout = now + 4000;
+            while (now < timeout) {
+                d = new Date();
+                now = d.getTime();
+            }
+		</script>
+	</head>
+	<body>
+         <input id="makeSureIExist"/>
+	</body>
+</html>

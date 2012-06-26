@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>Stimulate Element Tests</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="http://localhost/jsunit/css/jsUnitStyle.css">
+    <script type="text/javascript" src="http://localhost/jsunit/app/jsUnitCore.js"></script>
+	<script type="text/javascript" src="http://localhost/javascript/jquery.js"></script>
+	<script type="text/javascript" src="http://localhost/javascript/utilities.js"></script>	
+	<script type="text/javascript" src="http://localhost/javascript/stimulateElement.js"></script>
+    <script type="text/javascript">
+        
+        window.onerror = function() {
+            setPassedText('error');
+            return true;
+        }
+
+        window.onload = function() {
+            setPassedTextOnLoad();
+            return true;
+        }
+
+        window.onunload = function() {
+            setPassedTextOnUnLoad();
+            return true;
+        }
+
+        window.onresize = function() {
+            setPassedText('resize');
+            return true;
+        }
+                
+		function setPassedText(eventName){
+		    document.getElementById('txtPassed').value = "PASSED";
+		    document.getElementById('txtEventName').value = eventName;
+			testText = "PASSED";
+		    return true;
+		}
+		
+		function setFailedText(eventName){
+		    document.getElementById('txtPassed').value = "FAILED";
+		    document.getElementById('txtEventName').value = eventName;
+			testText = "FAILED";
+		    return true;
+		}
+
+		function setPassedTextOnLoad() {
+		    document.getElementById('txtPassed').value = "ONLOAD PASSED";
+		    document.getElementById('txtEventName').value = "load";
+			loadText = "ONLOAD PASSED";
+			return true;
+		}
+
+		function setPassedTextOnUnLoad() {
+		    document.getElementById('txtPassed').value = "UNLOAD PASSED";
+		    document.getElementById('txtEventName').value = "unload";
+			unloadText = "ONUNLOAD PASSED";
+			return true;
+		}
+
+		function alertBoxOk() {
+		    // Should click Ok for the tests
+		    if (confirm("This alert box should be closed by SWAT"))
+			{
+		        setPassedText("alert:OK");
+			}	
+			else
+			{
+				setFailedText("alert:CANCEL");
+			}
+		}
+
+		function alertBoxCancel() {
+		    // Should click Cancel for the tests
+		    if (!(confirm("This alert box should be closed by SWAT")))
+		    {
+		        setPassedText("alert:CANCEL");
+			}	
+			else
+			{
+				setFailedText("alert:OK");
+			}
+		}
+		
+		function stimulateLinkThroughButton(){
+			var element = document.getElementById('lnkClick');
+			assertNotNull(element);
+			var result = stimulateElement('click', element);
+		}
+
+		function simulateAbort() {
+		    testDiv.innerHTML = "<img id='imgTest2' src='broken_image_link.jpg' onabort='setPassedTxt('OnAbort')'/>";
+		    var element = document.getElementById('imgTest2');
+		    assertNotNull(element);
+		    var result = stimulateElement('abort', element);
+		}
+		
+		var testText = "FAILED";
+		var expectedText = "PASSED";
+		var google = "http://www.google.com";
+		var loadText = "FAILED";
+		var unloadText = "FAILED";
+		
+		// Tests follow
+				
+		function setUp(){
+			setFailedText(' ');
+		}
+		
+		function tearDown(){
+			setFailedText(' ');
+		}
+		
+		function testStimulateElementOnBlur(){
+			var element = document.getElementById('txtTest');
+			var eventName = 'blur';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnChange() {
+			var element = document.getElementById('selectBox');
+			var eventName = 'change';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnClickButton() {
+			var element = document.getElementById('btnClick');
+			var eventName = 'click';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnDoubleClickButton() {
+			var element = document.getElementById('btnDoubleClick');
+			var eventName = 'dblclick';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnError() {
+			var eventName = 'error';
+			var result = stimulateElement(eventName);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnFocus() {
+			var element = document.getElementById('txtTest');
+			var eventName = 'focus';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+
+		function testStimulateElementWithOptionOnFocus() {
+		    var element = document.getElementById('selectBox');
+		    assertNotNull(element);
+		    element.focus();
+		    assertEquals(expectedText, testText);
+		}
+		
+		function testStimulateElementOnKeyDown() {
+			var element = document.getElementById('txtTest');
+			var eventName = 'keydown';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+
+		function testStimulateElementOnKeyPress() {
+			var element = document.getElementById('txtTest');
+			var eventName = 'keypress';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnKeyUp() {
+			var element = document.getElementById('txtTest');
+			var eventName = 'keyup';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnLoad() {
+			var result = stimulateElement('load');
+			assertTrue(result);
+			assertEquals("ONLOAD PASSED", loadText);
+		}
+		
+		function testStimulateElementOnMouseDown() {
+			var element = document.getElementById('txtTest');
+			var eventName = 'mousedown';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnMouseMove() {
+			var element = document.getElementById('imgTest');
+			var eventName = 'mousemove';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnMouseOut() {
+			var element = document.getElementById('txtTest');
+			var eventName = 'mouseout';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnMouseOver() {
+			var element = document.getElementById('txtTest');
+			var eventName = 'mouseover';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnMouseUp() {
+			var element = document.getElementById('txtTest');
+			var eventName = 'mouseup';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnReset() {
+			var element = document.getElementById('submitForm');
+			var eventName = 'reset';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnResize() {
+			var result = stimulateElement('resize');
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+		}
+		
+		function testStimulateElementOnSelect() {
+			var element = document.getElementById('txtTest');
+			var eventName = 'select';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnSubmit(){
+			var element = document.getElementById('submitForm');
+			var eventName = 'submit';
+			assertNotNull(element);
+			var result = stimulateElement(eventName, element);
+			assertTrue(result);
+			assertEquals(expectedText, testText);
+			assertEquals(eventName, document.getElementById('txtEventName').value);
+		}
+		
+		function testStimulateElementOnUnLoad() {
+			var result = stimulateElement('unload');
+			assertTrue(result);
+			assertEquals("ONUNLOAD PASSED", unloadText);
+		}	// Tests end
+
+    </script>
+    
+    </head>
+    <body>
+	
+<h1>
+    JS StimulateElement Tests</h1>
+<p>
+    This page contains test for SWAT&#39;s stimulateElement command for the Google 
+    Chrome extension.
+</p>
+<div id="TestStimulateElement">
+    <div>
+        <p id="p1innDivB" class="class1">
+        </p>
+        <a id="lnkClick" href="http://www.google.com" onclick="setPassedText('click')">OnClick 
+        Link</a>
+        <br />
+        <input id="btnClick" onclick="setPassedText('click')" type="submit" value="onClick" />
+        <br />
+        <input id="btnDoubleClick" ondblclick="setPassedText('dblclick');" type="submit" value="onDblClick" />&nbsp;
+        <br />      
+        <input id="btnAlertOk" onclick="alertBoxOk();" type="submit" value="Alert OK" />&nbsp;
+        <br />  
+        <input id="btnAlertCancel" onclick="alertBoxCancel()" type="submit" value="Alert CANCEL" />&nbsp;
+        <br />  
+        <input id="btnStimulateLink" onclick="stimulateLinkThroughButton()" 
+            type="submit" value="stimulateOnClick" />
+        <input id="txtPassed" type="text" value="FAILED" />
+        <input id="txtEventName" type="text" value="Name of the event fired" />
+    </div>
+    <div>
+        <input id="txtTest" type="text" onfocus="setPassedText('focus')" onblur="setPassedText('blur')" 
+            onkeydown="setPassedText('keydown')" onkeypress="setPassedText('keypress')" onkeyup="setPassedText('keyup')" 
+            onmousedown="setPassedText('mousedown')" onmouseout="setPassedText('mouseout')" onchange="setPassedText('change')"
+            onmouseover="setPassedText('mouseover')" onmouseup="setPassedText('mouseup')"
+            onselect="setPassedText('select')" value="Fire events here"/>
+        <br />    
+        <img id="imgTest" onmousemove="setPassedText('mousemove')" alt="Ultimate Software Logo" 
+            src="http://ultimatesoftware.com/images/top_section_expanded.jpg" onabort="setPassedTxt('abort')" />
+        <br />
+        <form id="submitForm" action="../../TestPages/StimulateElement.htm" onreset="setPassedText('reset');" onsubmit="setPassedText('submit'); return true;" >    
+        </form>
+        <select id="selectBox" 
+            onfocus="setPassedText('focus')" 
+            onblur="setPassedText('blur')" 
+            onchange="setPassedText('change')"
+        >
+            <option id="optionYes" value="1">Yes</option>
+            <option id="optionNo" value="0">No</option>
+        </select>
+    </div>
+    <div id ="testDiv"></div>
+</div>
+</body>
+</html>

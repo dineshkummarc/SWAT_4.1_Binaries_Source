@@ -1,0 +1,4 @@
+C:\SWAT\trunk\bin\Release\SWAT.user.config
+C:\SWAT\trunk\bin\Release\SWATAbstractionEngine.dll
+C:\SWAT\trunk\SWAT.AbstractionEngine\obj\Release\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT.AbstractionEngine\obj\Release\SWATAbstractionEngine.dll

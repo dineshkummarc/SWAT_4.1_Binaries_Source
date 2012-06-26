@@ -1,0 +1,8 @@
+C:\SWAT\trunk\bin\Debug\SWAT.user.config
+C:\SWAT\trunk\bin\Debug\SWAT.Core.dll.config
+C:\SWAT\trunk\bin\Debug\SWAT.Core.dll
+C:\SWAT\trunk\bin\Debug\SWAT.Core.pdb
+C:\SWAT\trunk\SWAT.Core\obj\Debug\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT.Core\obj\Debug\SWAT.Core.csproj.ResolveComReference.cache
+C:\SWAT\trunk\SWAT.Core\obj\Debug\SWAT.Core.dll
+C:\SWAT\trunk\SWAT.Core\obj\Debug\SWAT.Core.pdb

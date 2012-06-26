@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>		
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>SWAT Test Page</title>
+		<style type="text/css">
+            .noninlinestyletestclass
+            {
+        	    color:Fuchsia;
+        	    height:100px;
+        	    top:10px;
+        	    border:solid;
+            }
+        </style>
+		<script language="javascript" type="text/javascript">
+		    function testAlert()
+		    {
+		        if (confirm("Please press Ok or Cancel"))
+		            document.getElementById("txtOne").value = 'Ok';
+		        else
+		            document.getElementById("txtOne").value = 'Cancel';
+		    }
+			
+			function delayedAlert()
+		    {
+		        setTimeout("testAlert()", 15000);
+		    }
+
+		    function testTwoAlerts()
+		    {
+		        if (confirm("Press Ok to launch another alert"))
+		        {
+		            if (confirm("Press Ok to close this alert")) {
+		                document.getElementById("txtOne").value = 'Two';
+		            }
+		        }
+		        else
+		            document.getElementById("txtOne").value = 'Cancel';
+		    }
+
+		    function testBlankAlert() 
+		    {
+		        confirm("");
+		    }
+
+		    function processOnKeyUp(text)
+		    {
+		        var span = document.getElementById('spanPressKey');
+		        span.innerHTML = text.value;
+		    }
+
+		    function setTextBoxValue()
+		    {
+		        document.getElementById('txtOne').value = 'Test1';
+		    }
+
+		    function clearTextBoxValue()
+		    {
+		        document.getElementById('txtOne').value = '';
+		    }
+
+		    function setMousedOver(element)
+		    {
+		        element.innerHTML = 'Moused over';
+		    }
+		    
+		    function displayOptionValue(element)
+		    {
+		        document.getElementById('optionLabel').innerHTML = element.value;
+		    }
+
+		    function gotoNewPage()
+		    {
+		        if (confirm("Please press Ok to open new page."))
+		            window.location.href = "TestOpenWindowPage.htm";
+		    }
+			
+			function closePage()
+			{
+				if (confirm("Testing JS Dialogs that close the page"))
+				{
+					window.open('', '_self', ''); //workaround to close page not opened by javascript
+					window.close();
+				}
+			}
+
+		    function closeWindow() 
+		    {
+		        if (confirm("Close Window?"))
+		            window.close();
+		    }
+
+		    function isEmployee() {
+		        var status = document.getElementById('ctl00_Content_AddHideBehavior').value;
+		        var empStatus = document.getElementById('employeeStatus');
+		        var hours = document.getElementById('txtHours');
+		        if (status == "True") {
+		            empStatus.disabled = false;
+		            hours.disabled = false;
+		        }
+		        else {
+		            empStatus.disabled = true;
+		            hours.disabled = true;
+		        }
+		    }
+
+		    function setHours() {
+		        var empStatus = document.getElementById('employeeStatus');
+		        var hours = document.getElementById('txtHours');
+		        switch (empStatus.value) {
+		            case "Full":
+		                hours.value = 40;
+		                break;
+		            case "Part":
+		                hours.value = 20;
+		                break;
+		            case "Intern":
+		                hours.value = 30;
+		                break
+		            case "Temp":
+		                hours.value = 25;
+		                break;
+		        }
+		    }
+
+		     window.onload = function () {
+		         document.getElementById('employeeStatus').disabled = true;
+		         document.getElementById('txtHours').disabled = true;
+		     }   
+		    
+	    </script>
+	</head>
+	<body class="newclass">
+	    <p>Parent Element Test</p>
+	    <ul>
+	        <li class="listItems" direction="left" id="myId" code="160" hightlight="false" currentcount="3"><a class="stepPause" id="dd" defaultstyle="stepPause" href="#">Stop</a></li>
+        </ul>
+        <div id="testDiv" class="div" name="testDivName">
+            <span id="testSpan" class="spn">
+                <input type="text" value="testing parent elements" />
+            </span>
+        </div>
+	    <table>
+	        <tr>
+	            <td id="td1" name="td1Name" style="width: 491px" >
+	                <input type="button" id="btnSetVal" value="Set Value" onclick="setTextBoxValue();" />
+					<input type="button" id="slowNavButtonAsp" value="Navigate to delayed load ASP page" onclick="window.location.href = 'SlowLoadingAspPage.aspx';" />
+                    <input type="button" id="slowNavButtonJavascript" value="Navigate to delayed load Javascript page" onclick="window.location.href = 'SlowLoadingJavascriptPage.htm';" />
+                    <input type="button" id="btnClear" value="Clear Value" onclick="clearTextBoxValue();" />
+                    <input type="text"	id="txtOne" name="txtName"/>  
+                    <input type="checkbox" id="chkOne" value="check1"/> 
+					<input type="checkbox" id="chkDefaultValue"/> 
+                    <input title="Google Search" maxlength="2048" size="55" name="q" autocomplete="off"/>
+					<input type="text" id="cancelEventTestBox" value="This should not change" onkeypress="return false;" />
+	            </td>
+	        </tr>
+	        <tr>
+	            <td style="width: 491px">
+	                <input type="button" id="btnNewWindow" onclick="window.open('TestOpenWindowPage.htm');" value="Open new window" />&nbsp;
+	                <input type="button" id="btnAlert" onclick="testAlert();" value="Opens an alert box" />
+	                <input type="button" id="btnTwoAlerts" onclick="testTwoAlerts();" value="Opens 2 alert boxes" />
+					<input type="button" id="btnSlowAlert" onclick="delayedAlert();" value="Opens a slow alert box" />
+	                <input type="button" id="btnBlankAlert" onclick="testBlankAlert();" value="Opens a blank alert box" />
+                    <input type="button" id="btnNewWindowClose" onclick="window.open('PageToCloseWindow.htm');" value="Opens a window to be closed" />
+                    <input type="button" id="modalButton" style="width: 153px" value="Open Modal Dialog" onclick="window.showModalDialog('Dialog.htm');" />
+                    <input type="button" id="btnDialogNewPage" onclick="gotoNewPage();" value="JSDialog to new page" />
+                    <input type="button" id="longModalTitle" style="width: 153px" value="Open Long Title Modal Dialog" onclick="window.showModalDialog('LongModalDialog.htm');" />
+					<input type="button" id="btnCloseWindow" value="Close Browser Window" onclick="window.open('', '_self', ''); window.close();" />
+					<input type="button" id="btnDialogCloseWindow" value="JSDialog that closes window" onclick="closePage();" />
+                </td>
+	        </tr>
+	        <tr>
+	            <td id="tdInnerHtml" style="width: 491px" >This is inner html</td>
+	        </tr>
+	        <tr>
+	            <td style="width: 491px">
+	                <select id="cmbOne" onchange="displayOptionValue(this);">
+	                    <option value="value1">option 1</option>
+	                    <option value="value2">option 2</option>
+	                </select>
+	                <label id="optionLabel"></label>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td style="width: 491px"><div id="dvMouseOver" onmouseover="setMousedOver(this);">Not moused over yet</div></td>
+	        </tr>
+	        <tr>
+	            <td style="width: 491px"><textarea id="txtAreaOne" ></textarea></td>
+	        </tr>
+	        <tr>
+                <td>
+                    File Input field:
+                    <input id="fileInput"  type="FILE" name="datafile" size="40">
+                </td>
+	        </tr>
+	        <tr>  
+	            <td>
+	                Test list item close tags
+	                <ul id="matchCountList">
+		                <li>list item 1</li>
+		                <li>list item 2</li>
+		                <li>list item 3</li>
+	                </ul>
+	            </td>
+	        </tr>
+	    </table>
+	    <a id="linkID" class="myClass" name="linkName" href="http://www.apple.com" style="color:green">Apple</a>
+	    <a id="lnkGoogle" name="nmGoogle" href="http://www.google.com">Google</a>
+	    <br />
+	    <a href="http://www.google.com">Ann’s, Ann's, Ann`s</a>
+	    <br />
+	    <a href="files/fw4.pdf">Form W-4</a>
+	    <br />
+	    <br />
+	    <a href="files/ExcelTest.xls">Excel Doc 1</a>
+	    <a href="files/ExcelTest2Substring.xls">Excel Doc 2</a>
+	    <br />
+	    <br />
+       <td id="employee" style="width: 491px" >Employee</td>
+	    <select id="ctl00_Content_AddHideBehavior" class="propertyValue" onchange="isEmployee();"> 
+		    <option value="True">Yes</option> 
+		    <option value="False">No</option> 
+	    </select>
+		<br />
+        <select id="employeeStatus" class="propertyValue" onchange="setHours();"> 
+		    <option value="Full">Full-Time</option> 
+		    <option value="Part">Part-Time</option>
+            <option value="Intern">Intern</option> 
+		    <option value="Temp">Temporary</option> 
+	    </select>
+        Hours:
+        <input type="text"	id="txtHours" name="txtName" disabled=true/>
+		<select id="grvEmployeePays_firstSelect_0" onchange="grvEmployeePays.changeRHS(this)" style="">
+			<option params="" filtervalue="EecEmpNo" value="Employee number" style="color: rgb(0, 0, 0);">Employee number</option>
+		</select>
+	    <br />
+	    <br />
+		<form action="http://www.google.com" method="post" id="myform" onload="alert('ok')" onclick="alert('ok')">
+			<p>
+				<label for="firstname" title="Write your name here.">First name: </label>
+					  <input type="text" id="firstname"><br>
+				<label for="lastname">Last name: </label>
+					  <input type="text" id="lastname"><br>
+				<label for="email">email: </label>
+					  <input type="text" id="email"><br>
+				<input type="radio" name="sex" value="Male"> Male<br>
+				<input type="radio" name="sex" value="Female"> Female<br>
+				<input type="submit" value="Send"> <input type="reset">
+			</p>
+		</form>
+		<br />
+		<br />
+	    <iframe src="FrameA.htm"></iframe>
+	    <br />
+	    <br />
+	    <input type="text" id="txtPressKey" onkeyup="processOnKeyUp(this)"/>&nbsp<span id="spanPressKey"></span>
+	    <br />	    
+	    <a href="PageThatHangs.htm">Page that hangs</a>
+	    <div id="divTestCaseId" class="divTestCaseClass" name="divTestCaseName" onclick="this.textContent=this.innerText='OnClick'" style="background-color:Aqua">DIV Test Case</div>
+		<select id="GridView1" >
+			<option filtervalue="EmpNo" value="option">option</option>
+			<option filtervalue="EmpNo" value="Numéro d’employé">Numéro d’employé</option>			
+		</select>
+		<br />
+		<span id="spanTestCaseId" class="spanTestCaseClass" name="spanTestCaseName" onclick="this.textContent=this.innerText='OnClick'" style="background-color:Olive">SPAN Test Case</span>
+		<br />
+		<select class="optionTestClass">
+	        <option value="optionTestValue1" id="optionTestId1" name="optionTestName1" onclick="this.textContent=this.innerText='OnClick1'" onfocus="this.textContent=this.innerText='OnFocus1'" style="background-color:Fuchsia">OPTION Test Case 1</option>
+	        <option value="optionTestValue2" id="optionTestId2" name="optionTestName2" onclick="this.textContent=this.innerText='OnClick2'" onfocus="this.textContent=this.innerText='OnFocus2'" style="background-color:Blue">OPTION Test Case 2</option>
+	        <option value="optionTestValue3" id="optionTestId3" name="optionTestName3" onclick="this.textContent=this.innerText='OnClick3'" onfocus="this.textContent=this.innerText='OnFocus3'" style="background-color:Maroon">OPTION Test Case 3</option>
+	    </select>
+	    
+	    <table id="tableTestId",  style="background-color:Silver", class="tableTestClass">
+	        <tr id="trTestId1", style="border-style:double" class="trTestClass1">
+	            <td id="tdTestId1", style="border-style:outset" class="tdTestClass1" onclick="this.textContent=this.innerText='Goodbye Wonderful'">Hello Wonderful</td>
+	            <td>Hellos Wonderful</td>
+	        </tr>
+	        <tr id="trTestId2", style="border-style:groove" class="trTestClass2">
+	            <td id="tdTestId3", style="border-style:solid" class="tdTestClass3" onfocus="this.textContent=this.innerText='No more options'">
+	                <select id="Select1" >
+			            <option>blah</option>
+			            <option>blah blah blah</option>			
+		            </select>
+		        </td>
+	        </tr>
+	    </table>
+	    
+	    <p style="background-color:Red; bottom:10px" class="noninlinestyletestclass">testing non inline styles</p>
+	    
+	    <form>
+        <iframe src="testonblur.html">
+        </iframe>
+        </form>
+
+        <input type="image" name="Image for testing" id="testImage" src="files/testImage.jpg" />
+		<input id="customAttributeTextBox" testCustomAttrib="pass">
+	    
+        <br />
+        <textarea id="textAreaErrorExcptFailed" >Error Exception Failed</textarea>
+        <br />
+		
+   	</body>
+</html>

@@ -1,0 +1,4 @@
+C:\SWAT\trunk\bin\Release\SWAT.user.config
+C:\SWAT\trunk\bin\Release\SWAT.Fitnesse.dll
+C:\SWAT\trunk\SWAT.Fitnesse\obj\Release\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT.Fitnesse\obj\Release\SWAT.Fitnesse.dll

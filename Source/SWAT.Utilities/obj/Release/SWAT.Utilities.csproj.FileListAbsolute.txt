@@ -1,0 +1,5 @@
+C:\SWAT\trunk\bin\Release\SWAT.Utilities.dll
+C:\SWAT\trunk\bin\Release\SWAT.Utilities.pdb
+C:\SWAT\trunk\SWAT.Utilities\obj\Release\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT.Utilities\obj\Release\SWAT.Utilities.dll
+C:\SWAT\trunk\SWAT.Utilities\obj\Release\SWAT.Utilities.pdb

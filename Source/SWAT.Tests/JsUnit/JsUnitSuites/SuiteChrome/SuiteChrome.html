@@ -1,0 +1,24 @@
+<html xmlns="http://w3.org/1999/xmlns">
+
+<head>
+	<title>Main JSUnit Test Suite</title>
+	<link rel="stylesheet" type="text/css" href="http://localhost/jsunit/css/jsUnitStyle.css">
+	<script type="text/javascript" src="http://localhost/jsunit/app/jsUnitCore.js"></script>
+	<script language="JavaScript" type="text/javascript">
+		function DoSuites() {
+			var baseUrl = "http://localhost/jsunitsuites/SuiteChrome/";
+			var result = new top.jsUnitTestSuite();
+			result.addTestPage(baseUrl + "findElementTests.html");
+			result.addTestPage(baseUrl + "getElementTests.html");
+			result.addTestPage(baseUrl + "stimulateElementTests.html");
+			return result;
+		}
+		
+		function suite() {
+			var newsuite = new top.jsUnitTestSuite();
+			newsuite.addTestSuite(DoSuites());
+			return newsuite;
+		}
+		
+	</script>
+</head>

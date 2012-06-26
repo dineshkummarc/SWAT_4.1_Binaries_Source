@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="http://localhost/jsunit/css/jsUnitStyle.css">
+    <script type="text/javascript" src="http://localhost/jsunit/app/jsUnitCore.js"></script>
+	<script type="text/javascript" src="http://localhost/javascript/jquery.js"></script>
+	<script type="text/javascript" src="http://localhost/javascript/utilities.js"></script>
+	<script type="text/javascript" src="http://localhost/javascript/findElement.js"></script>
+	<script type="text/javascript" src="http://localhost/javascript/contentscript.js"></script>
+	<script type="text/javascript">
+		
+		function testGetElemById() {
+			var element = getElement("Id", "p1outDivA", "p");
+			assertNotNull( element );
+			assertNotEquals( "undefined", typeof(element) );
+		}
+		
+		function testGetElemByIdNegativeTest() {
+			var element = getElement("Id", "yyydoesnotexistxxx", "p");
+			assertNotNull( element );
+			assertEquals( "undefined", typeof(element) );
+		}
+		
+		function testGetElemByName() {
+			var element = getElement("Name", "p1outDivA_Name", "p");
+			assertNotNull( element );
+			assertNotEquals( "undefined", typeof(element) );
+		}
+		
+		function testGetElemByNameNegativeTest() {
+			var element = getElement("Name", "yyydoesnotexistxxx", "p");
+			assertNotNull( element );
+			assertEquals( "undefined", typeof(element) );
+		}
+		
+		function testGetElemByInnerHtml() {
+			var element = getElement("InnerHtml", "Paragraph1 in outterDivB", "p");
+			assertNotNull( element );
+			assertNotEquals( "undefined", typeof(element) );
+		}
+		
+		function testGetElemByInnerHtmlNegativeTest() {
+			var element = getElement("InnerHtml", "yyydoesnotexistxxx", "p");
+			assertNotNull( element );
+			assertEquals( "undefined", typeof(element) );
+		}
+		
+		function testGetElemByInnerHtmlContains() {
+			var element = getElement("InnerHtmlContains", "graph5 inner in outterDivB", "p");
+			assertNotNull( element );
+			assertNotEquals( "undefined", typeof(element) );
+		}
+		
+		function testGetElemByInnerHtmlContainsNegativeTest() {
+			var element = getElement("InnerHtmlContains", "yyydoesnotexistxxx", "p");
+			assertNotNull( element );
+			assertEquals( "undefined", typeof(element) );
+		}
+		
+		function testGetElemByIDRegularExpression() {
+			var element = getElement("Expression", "id:[0-9]", "p");
+			assertNotNull( element );
+			assertNotEquals( "undefined", typeof(element) );
+		}
+		
+		function testGetElemBySingleAttributeMatch() {
+			var element = getElement("Expression", "attributeAp3=valueAttribute1", "p");
+			assertNotNull( element );
+			assertNotEquals( "undefined", typeof(element) );
+		}
+		
+		function testGetElemByMultipleAttributeMatch() {
+			var element = getElement("Expression", "attribute1Ap4=valueAttribute1;attribute2Ap4=valueAttribute2", "p");
+			assertNotNull( element );
+			assertNotEquals( "undefined", typeof(element) );
+		}
+		
+		function testGetElemByParentElement() {
+			var element = getElement("Expression", "id=p2innDivB;parentElement.parentElement.id=outterDivB", "p");
+			assertNotNull( element );
+			assertNotEquals( "undefined", typeof(element) );
+		}
+		
+		function testGetAllElementsByAttributeValue() {
+			var element = getElement("Expression", "class:cla.s1", "*");
+			assertNotNull( element );
+			assertNotEquals( "undefined", typeof(element) );
+		}
+		
+		function testGetAllElementsByExpressionWithAllTag() {
+			var element = getElement("Expression", "id:txtOne", "*");
+			assertNotNull( element );
+			assertNotEquals( "undefined", typeof(element) );
+		}
+		
+    </script>
+</head>
+
+<body>
+<h1>getElement Tests</h1>
+	<p>
+	This page contains test for SWAT's getElement command for the Google Chrome extension.
+	</p>
+	<div id="TestDivision">
+		<div id="outterDivA">
+			<p name="p1outDivA_Name" id="p1outDivA">Paragraph1 in outterDivA</p>
+			<p id="p2outDivA">Paragraph2 in outterDivA</p>
+			<p id="p3outDivA" attributeAp3="valueAttribute1">Paragraph1 in outterDiv1</p>
+			<p id="p4outDivA" attribute1Ap4="valueAttribute1" attribute2Ap4="valueAttribute2">Paragraph1 in outterDiv1</p>
+			<p id="p5outDivA" class="class1p5outDivA">Paragraph1 in outterDiv1</p>
+			<p id="p6outDivA" class="class1p6outDivA" name="name1p6outDivA">Paragraph1 in outterDiv1</p>
+		</div>
+		<div id="outterDivB" name="nameoutterDivB">
+			<div id="innerDivB1">
+				<p id="p1innDivB">Paragraph1 in outterDivB</p>
+				<p id="p2innDivB">Paragraph2 in outterDivB</p>
+				<p id="p3innDivB">Paragraph3 in outterDivB</p>
+				<p id="p4innDivB">Paragraph4 in outterDivB</p>
+				<p id="p5innDivB">Paragraph5 inner in outterDivB test</p>
+				<p id="p6innDivB">Paragraph6 inner in outterDivB</p>
+			</div>
+		</div>
+		<div id="outterDivC" style="float:right;direction:rtl">
+			<p id="p1outDivC">Paragraph1 in outterDivC</p>
+			<p id="p2outDivC">Paragraph2 in outterDivC</p>
+			<div id="innerDivC1" style="float:right;direction:rtl"> <!--float:right;-->
+				<p id="p1innDivC1">Paragraph1 in innerDivC</p>
+			</div>
+		</div>
+		<div id="outterDivD">
+			<input type="text" id="txtOne" name="txtName"></input>
+		</div>
+		<div id="outterDivE"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+    <title>Find Element Tests</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="http://localhost/jsunit/css/jsUnitStyle.css">
+    <script type="text/javascript" src="http://localhost/jsunit/app/jsUnitCore.js"></script>
+	<script type="text/javascript" src="http://localhost/javascript/jquery.js"></script>
+	<script type="text/javascript" src="http://localhost/javascript/utilities.js"></script>
+	<script type="text/javascript" src="http://localhost/javascript/findElement.js"></script>
+    <script type="text/javascript">
+		
+		<!--getParentCount tests-->
+        function testGetGenerationCountFindsOneParent() {
+            assertEquals(1, getGenerationCount('parentElement.id'));
+        }
+		
+		function testGetParentCountFindsTwoParents() {
+            assertEquals(2, getGenerationCount('parentElement.parentElement.id'));
+        }
+		
+		function testGetParentCountReturnsNullIfInvalid() {
+			assertNull(getGenerationCount('parentElement..parentElement.id'));
+		}
+		
+		function testGetElemByIDMatch() {
+			var elements = $('p:Expression(id=p1outDivA)');
+			assert(elements.length > 0);
+		}
+		
+		function testGetElemByIDRegularExpression() {
+			var elements = $('p:Expression(id:p2.u.DivA)');
+			assert(elements.length > 0);
+		}
+		
+		function testGetElemBySingleAttributeMatch() {
+			var elements = $('p:Expression(attributeAp3=valueAttribute1)');
+			assert(elements.length > 0);
+		}
+		
+		function testGetElemByMultipleAttributeMatch() {
+			var elements = $('p:Expression(attribute1Ap4=valueAttribute1;attribute2Ap4=valueAttribute2)');
+			assert(elements.length > 0);
+		}
+		
+		function testGetElemBySingleAttributeRegularExpression() {
+			var elements = $('p:Expression(id=p5outDivA;class:[0-9];class:[a-z])');
+			assert(elements.length > 0);
+		}
+		
+		function testGetElemByMultipleAttributeRegularExpression() {
+			var elements = $('p:Expression(id=p6outDivA;class:[0-9];class:[a-z];name:name1p.ou.Di.A)');
+			assert(elements.length > 0);
+		}
+		
+		function testGetElemByParentElement() {
+			var elements = $('p:Expression(id=p2innDivB;parentElement.parentElement.id=outterDivB)');
+			assert(elements.length > 0);
+		}
+		
+		function testGetElemByInnerHtmlMatch() {
+			var elements = $("p:Expression(id=p2innDivB;innerHTML=Paragraph2 in outterDivB)");
+			assert(elements.length > 0);
+		}
+		
+		function testGetElemCallInnerHtml() {
+			var elements = $("p:InnerHtml(Paragraph3 in outterDivB)");
+			assert(elements.length > 0);
+		}
+		
+		function testGetElemCallInnerHtmlContains() {
+			var elements = $("p:InnerHtmlContains(ph4 in outterDivB)");
+			assert(elements.length > 0);
+		}
+		
+		function testGetElemByInnerHtmlRegularExpression() {
+			var elements = $("p:Expression(id=p2innDivB;innerHTML:Paragraph2.in.outterDivB)");
+			assert(elements.length > 0);
+		}
+		
+		function testGetElemByInnerHtmlExactMatch() {
+			var elements = $("p:Expression(innerHTML#1:Paragraph inner in outterDivB)")
+			assert(elements.length == 2);
+		}
+		
+		function testGetElemByStyleAttribute() {
+			var elements = $('div:Expression(id=outterDivC;style:direction:rtl;float:right)')
+			assert(elements.length > 0);
+		}
+
+		function testGetElemByParentStyleAttribute() {
+			var elements = $('p:Expression(id=p1innDivC1;parentElement.id=innerDivC1;parentElement.style:direction:rtl;float:right)')
+			assert(elements.length > 0);
+		}
+		
+		function testGetElemByWithBackgroundImageStyleAttribute() {
+			var elements = $('div:Expression(parentElement.id=bgImageStyleDiv;style:background-image:.*SWATLogoSmall.png.*)')
+			assert(elements.length > 0);
+		}
+		
+		function testGetElemByParentStyleAttributeWithSpace() {
+			var elements = $('p:Expression(id=p1innDivC1;parentElement.id=innerDivC1;parentElement.style:direction:rtl; float:right)')
+			assert(elements.length > 0);
+		}
+		function testGetAllElementsByAttributeValue() {
+			var elements = $('*:Expression(class:cla.s1)')
+			assert(elements.length > 0);
+		}
+		
+		//////////////
+		
+		function testGetInlineCssColorItalia() {
+			var elements = $('*:Expression(id=Italia;style:color:#9000A1)');
+			assert(elements.length > 0);
+		}
+		
+		function testGetInlineCssColorItaliaSpace() {
+			var elements = $('*:Expression(id=Italia;style:color: #9000A1)');
+			assert(elements.length > 0);
+		}
+		
+		function testGetInlineCssColorNewYork() {
+			var elements = $('*:Expression(id=NewYork;style:color:(0, 220, 98))');
+			assert(elements.length > 0);
+		}
+		
+		function testGetInlineCssColorNewYorkNeg() {
+			var elements = $('*:Expression(id=NewYork;style:color:(0,220,98))');
+			assert(elements.length == 0);
+		}
+		
+		function testGetInlineCssColorLesLuthier() {
+			var elements = $('*:Expression(id=LesLuthiers;style:color:Fuchsia)');
+			assert(elements.length > 0);
+		}
+		
+		function testGetInlineCssColorLesLuthierSpace() {
+			var elements = $('*:Expression(id=LesLuthiers;style:color: Fuchsia)');
+			assert(elements.length > 0);
+		}
+		
+		function testGetInlineCssColorLesLuthierNeg() {
+			var elements = $('*:Expression(id=LesLuthiers;style:color:Fuchia)');
+			assert(elements.length == 0);
+		}
+		
+		function testGetInlineCssColorTheCraken() {
+			var elements = $('*:Expression(id=TheCraken;style:color:(0, 220, 98))');
+			assert(elements.length > 0);
+		}
+		
+		function testGetInlineCssColorTheCrakenNeg() {
+			var elements = $('*:Expression(id=TheCraken;style:color:(0,220,98))');
+			assert(elements.length == 0);
+		}
+		
+		///////////////
+		
+		function testFindElementByStyleWidth () {
+			var elements = $('td:Expression(id=td1;style:width: 491px)');
+			assert(elements.length > 0);
+		}
+		
+		function testFindElementByStyleWidthNeg () {
+			var elements = $('td:Expression(id=td1;style:width:491px)');
+			assert(elements.length > 0);
+		}
+		
+		function testNegNonInlineStyleAttrTop () {
+			var elements = $('p:Expression(id=meaparagraph;style:top:20px)');
+			assert(elements.length == 0);
+		}
+		
+		function testNegNonInlineStyleAttrColorFuchsia () {
+			var elements = $('p:Expression(id=meaparagraph;style:color:Fuchsia)');
+			assert(elements.length == 0);
+		}
+		
+		function testNonInlineStyleAttrColorFuchsia () {
+			var elements = $('p:Expression(id=meaparagraph;style:color:(255, 0, 255))');
+			assert(elements.length > 0);
+		}
+		
+		function testNegNonInlineStyleAttrColor () {
+			var elements = $('p:Expression(id=meaparagraph;style:height:200px;color:Fuchsia)');
+			assert(elements.length == 0);
+		}
+		
+		function testNegNonInlineStyleAttrTopBottom () {
+			var elements = $('p:Expression(id=meaparagraph;style:height:200px;top:2px;bottom:1px)');
+			assert(elements.length == 0);
+		}
+		
+		function testNonInlineStyleAttrHeight () {
+			var elements = $('p:Expression(id=meaparagraph;style:height:200px)');
+			assert(elements.length > 0);
+		}
+		
+		function testNonInlineStyleAttrWidth () {
+			var elements = $('p:Expression(id=meaparagraph;style:width:100px)');
+			assert(elements.length > 0);
+		}
+		
+		function testNonInlineStyleClass () {
+			var elements = $('p:Expression(id=meaparagraph;class:noninlinestyletestclass)');
+			assert(elements.length > 0);
+		}
+		
+		///////////////////////
+		
+		function testStyleInnerTextMatchGroundColor() {
+			var elements = $('table:Expression(style:ground-color:)');
+			assert(elements.length > 0);
+		}
+		
+		function testStyleInnerTextMatchSilver() {
+			var elements = $('table:Expression(style:Silver)');
+			assert(elements.length > 0);
+		}
+		
+		function testStyleInnerTextMatchSilverSpace() {
+			var elements = $('table:Expression(style: Silver)');
+			assert(elements.length > 0);
+		}
+		
+		function testStyleInnerTextMatchSubstr1() {
+			var elements = $('p:Expression(style:nd-color:Red; bottom:10)');
+			assert(elements.length > 0);
+		}
+		
+		/////////
+		
+		function testStyleInnerTextMatchGroove() {
+			var elements = $('tr:Expression(style:style:groove)');
+			assert(elements.length > 0);
+		}
+		
+		function testStyleInnerTextMatchGrooveSpace() {
+			var elements = $('tr:Expression(style:style: groove)');
+			assert(elements.length > 0);
+		}
+		
+		function testStyleInnerTextMatchDouble() {
+			var elements = $('tr:Expression(style:style:double)');
+			assert(elements.length > 0);
+		}
+		
+		function testStyleInnerTextMatchDoubleSpace() {
+			var elements = $('tr:Expression(style:style: double)');
+			assert(elements.length > 0);
+		}
+		
+		function testStyleInnerTextMatchSolid() {
+			var elements = $('td:Expression(style:style:solid)');
+			assert(elements.length > 0);
+		}
+		
+		function testStyleInnerTextMatchSolidSpace() {
+			var elements = $('td:Expression(style:style: solid)');
+			assert(elements.length > 0);
+		}
+		
+		function testStyleInnerTextMatchOutset() {
+			var elements = $('td:Expression(style:style:outset)');
+			assert(elements.length > 0);
+		}
+		
+		function testStyleInnerTextMatchOutsetsSpace() {
+			var elements = $('td:Expression(style:style: outset)');
+			assert(elements.length > 0);
+		}
+    </script>
+    <style type="text/css">
+        .swatBgImage
+        {
+        	background-image: url('http://localhost/jsunitsuites/suitechrome/SWATLogoSmall.png');
+        }
+    </style>
+	<style type="text/css"> 
+		.noninlinestyletestclass
+		{
+			color:Fuchsia;
+			height:200px;
+			width:100px;
+			top:2px;
+			border:solid;
+		}
+	</style> 
+
+</head>
+
+<body>
+<h1>findElement Tests</h1>
+	<p>
+	This page contains test for SWAT's findElement command for the Google Chrome extension.
+	</p>
+	<div id="TestDivision">
+		<div id="outterDivA">
+			<p id="p1outDivA">Paragraph1 in outterDivA</p>
+			<p id="p2outDivA">Paragraph2 in outterDivA</p>
+			<p id="p3outDivA" attributeAp3="valueAttribute1">Paragraph1 in outterDiv1</p>
+			<p id="p4outDivA" attribute1Ap4="valueAttribute1" attribute2Ap4="valueAttribute2">Paragraph1 in outterDiv1</p>
+			<p id="p5outDivA" class="class1p5outDivA">Paragraph1 in outterDiv1</p>
+			<p id="p6outDivA" class="class1p6outDivA" name="name1p6outDivA">Paragraph1 in outterDiv1</p>
+		</div>
+		<div id="outterDivB" name="nameoutterDivB">
+			<div id="innerDivB1">
+				<p class="class1" id="p1innDivB">Paragraph1 in outterDivB</p>
+				<p id="p2innDivB">Paragraph2 in outterDivB</p>
+				<p id="p3innDivB">Paragraph3 in outterDivB</p>
+				<p id="p4innDivB">Paragraph4 in outterDivB</p>
+				<p id="p5innDivB">Paragraph inner in outterDivB</p>
+				<p id="p6innDivB">Paragraph inner in outterDivB</p>
+			</div>
+		</div>
+		<div class="class1" id="outterDivC" style="float:right;direction:rtl">
+			<p class="class1" id="p1outDivC">Paragraph1 in outterDivC</p>
+			<p id="p2outDivC">Paragraph2 in outterDivC</p>
+			<div id="innerDivC1" style="float:right;direction:rtl"> <!--float:right;-->
+				<p id="p1innDivC1">Paragraph1 in innerDivC</p>
+			</div>
+		</div>
+		<div id="outterDivD">
+			<p id="TourDeFrance" style="color:blue;">
+				Lance Armstrong won the tour.
+			</p>
+			<p id="Italia" style="color:#9000A1;">
+					In the summer we say Italy.
+			</p>
+			<p id="NewYork" style="color:rgb(0,220,98);" >
+				Greatest city in the world.
+			</p>
+			<p id="LesLuthiers" style="color:Fuchsia" >
+				A train named desire.
+			</p>
+			<p id="TheCraken" style="color:rgb(0, 220, 98);" >
+				The monster is out.
+			</p>
+		</div>
+		<div id="outterDivE">
+			<table>
+				<tr>
+					<td id="td1" name="td1Name" style="width:491px" > 
+						<input type="button" id="btnSetVal" value="Set Value" onclick="setTextBoxValue();" /> 
+						<input type="button" id="btnClear" value="Clear Value" onclick="clearTextBoxValue();" /> 
+						<input type="text"	id="txtOne" name="txtName"/>  
+						<input type="checkbox" id="chkOne" value="check1"/> 
+						<input title="Google Search" maxlength="2048" size="55" name="q" autocomplete="off"/>    
+					</td> 
+				</tr>
+			</table>
+		</div>
+		<div id="outterDivF">
+			<p id="meaparagraph" style="background-color:Red; bottom:10px" class="noninlinestyletestclass">testing non inline styles</p>
+		</div>
+		
+		<div id="outterDivF">
+			<table id="tableTestId",  style="background-color:Silver", class="tableTestClass"> 
+				<tr id="trTestId1", style="border-style:double" class="trTestClass1"> 
+					<td id="tdTestId1", style="border-style:outset" class="tdTestClass1" onclick="this.textContent=this.innerText='Goodbye Wonderful'">Hello Wonderful</td> 
+					<td>Hellos Wonderful</td> 
+				</tr> 
+				<tr id="trTestId2", style="border-style:groove" class="trTestClass2"> 
+					<td id="tdTestId3", style="border-style:solid" class="tdTestClass3" onfocus="this.textContent=this.innerText='No more options'"> 
+						<select id="Select1" > 
+							<option>blah</option> 
+							<option>blah blah blah</option>			
+						</select> 
+					</td> 
+				</tr> 
+			</table> 
+		</div>
+		
+		<div id="bgImageStyleDiv">
+		    <div class="swatBgImage">
+		    </div>
+		</div>
+	</div>
+</body>
+</html>

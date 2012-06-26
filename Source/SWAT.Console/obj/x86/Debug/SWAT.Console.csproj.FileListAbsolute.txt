@@ -1,0 +1,7 @@
+C:\SWAT\trunk\bin\Debug\SWAT.user.config
+C:\SWAT\trunk\bin\Debug\SWAT.Console.exe.config
+C:\SWAT\trunk\bin\Debug\SWAT.Console.exe
+C:\SWAT\trunk\bin\Debug\SWAT.Console.pdb
+C:\SWAT\trunk\SWAT.Console\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\SWAT\trunk\SWAT.Console\obj\x86\Debug\SWAT.Console.exe
+C:\SWAT\trunk\SWAT.Console\obj\x86\Debug\SWAT.Console.pdb

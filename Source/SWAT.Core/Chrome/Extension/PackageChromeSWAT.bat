@@ -1,0 +1,1 @@
+PackageChromeExtension.exe "-d=C:\SWAT\trunk\SWAT.Core\Chrome\Extension\ChromeSWAT" "-k=C:\SWAT\trunk\SWAT.Core\Chrome\Extension\ChromeSWAT.pem" "-s"

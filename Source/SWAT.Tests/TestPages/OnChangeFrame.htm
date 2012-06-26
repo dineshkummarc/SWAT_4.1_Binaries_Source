@@ -1,0 +1,41 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>OnChange Test Frame</title>
+		<script language="javascript" type="text/javascript">		    
+		    function setType()
+            {
+                var obj = window.event.srcElement;
+                document.getElementById('selConnectASPResult').innerHTML = obj.value;
+            }
+
+            function openJSDialog()
+            {
+                alert("This is a dialog.");
+            }
+		</script>
+	</head>
+	<body>
+	    <form id="form1" name="form1" action="OnChangeFrame.htm" method="post">
+	        <table>
+	            <tr>
+	                <td>
+	                    <select id="selConnectASP" name="selConnectASP" onchange="setType();">
+	                        <option id="opt0ASP" value="0">option 0</option>
+	                        <option id="opt1ASP" value="1">option 1</option>
+	                    </select>
+	                    <span id="selConnectASPResult"></span>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <select id="selJSDialog" name="selJSDialog" onchange="openJSDialog();">
+                            <option id="opt0JS" value="0">option 0</option>
+                            <option id="opt1JS" value="1">option 1</option>
+                        </select>
+                   </td>
+                </tr>
+            </table>
+	    </form>
+	</body>
+</html>

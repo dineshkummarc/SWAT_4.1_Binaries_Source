@@ -1,0 +1,198 @@
+<html>
+<body>
+<script type="text/javascript">
+/*
+This script will generate a webpage with the selected number
+of iframes and selects. Each iframe and select will be surrounded by a div
+tag with random generated attributes. A div with an id of 'z' and name of 'zz' 
+will be created. No other div will contain a z in any of its attributes.
+*/
+
+
+function GenerateRandomWord(num)
+{
+    string = "";
+	var count;
+	
+	for(count=0;count<num;count++)
+	{
+		string += GetRandomLowerCaseLetter();
+	}
+	
+	return string;
+}
+function GetRandomLowerCaseLetter()
+{
+   return String.fromCharCode(97 + Math.round(Math.random() * 24));
+}
+
+function GenerateSelect(numberOfOptions, parentElement)
+{
+	var select;
+	var browserName=navigator.appName; 
+
+	if (browserName=="Microsoft Internet Explorer")
+	{
+		select = parentElement.document.createElement("Select");
+	}
+	else
+	{
+		select = document.createElement("Select");
+	}
+	
+	select.setAttribute("name", GenerateRandomWord(10))
+	select.setAttribute("class", GenerateRandomWord(10));
+	select.setAttribute("id", GenerateRandomWord(10));
+	select.setAttribute("title", GenerateRandomWord(10));
+
+	var count;
+	for(count=0;count<numberOfOptions;count++)
+	{
+		select.options[count] = new Option(GenerateRandomWord(10), "select " + count);
+	}
+	
+	parentElement.appendChild(select)
+
+}
+
+function GenerateDiv (parentElement)
+{
+	var div;
+	var browserName=navigator.appName; 
+
+	if (browserName=="Microsoft Internet Explorer")
+	{
+		div = parentElement.document.createElement("Div");
+	}
+	else
+	{
+		div = document.createElement("Div");
+	}
+   
+	div.setAttribute("name", GenerateRandomWord(10))
+	div.setAttribute("class", GenerateRandomWord(10));
+	div.setAttribute("id", GenerateRandomWord(10));
+	div.setAttribute("title", GenerateRandomWord(10));
+	
+	parentElement.appendChild(div);
+	
+	return div;
+}
+
+function GenerateIFrame(parentElement){
+	// Create the iframe which will be returned
+	var iframe;
+	var browserName=navigator.appName; 
+
+	if (browserName=="Microsoft Internet Explorer")
+	{
+		iframe = parentElement.document.createElement("iframe");
+	}
+	else
+	{
+		iframe = document.createElement("iframe");
+	}
+
+	// If no parent element is specified then use body as the parent element
+	if (parentElement == null) 
+		parentElement = document.body;
+	
+	
+	// This is necessary in order to initialize the document inside the iframe
+	parentElement.appendChild(iframe);
+	
+	// Initiate the iframe's document to null
+	iframe.doc = null;
+	
+	// Depending on browser platform get the iframe's document, this is only
+	// available if the iframe has already been appended to an element which
+	// has been added to the document
+	if (iframe.contentDocument) 
+		// Firefox, Opera
+		iframe.doc = iframe.contentDocument;
+	else if (iframe.contentWindow) 
+	{		
+		// Internet Explorer
+		iframe.doc = iframe.contentWindow.document;
+	}
+   else if(iframe.document)
+      // Others?
+      iframe.doc = iframe.document;
+
+   // If we did not succeed in finding the document then throw an exception
+   if(iframe.doc == null)
+      throw "Document not found, append the parent element to the DOM before creating the IFrame";
+
+   // Create the script inside the iframe's document which will call the
+   iframe.doc.open();
+   iframe.doc.close();
+
+   // Return the iframe, now with an extra property iframe.doc containing the
+   // iframe's document
+   return iframe;;
+}
+
+function pause(millis) 
+{
+        var date = new Date();
+        var curDate = null;
+
+        do { curDate = new Date(); } 
+        while(curDate-date < millis)
+}
+
+function GenerateAnswer (parentElement)
+{
+	var div;
+	var browserName=navigator.appName; 
+
+	if (browserName=="Microsoft Internet Explorer")
+	{
+		div = parentElement.document.createElement("Div");
+	}
+	else
+	{
+		div = document.createElement("Div");
+	}
+   
+	div.setAttribute("id", "z")
+	div.setAttribute("class", GenerateRandomWord(10));
+	div.setAttribute("name", "zz");
+	div.setAttribute("title", GenerateRandomWord(10));
+	div.innerHTML = "z";
+	
+	parentElement.appendChild(div);
+	
+	return div;
+}
+
+function GeneratePage()
+{
+	var count;
+	
+	for (count = 0; count < 3; count++) 
+	{
+		var element = GenerateDiv(document.body);
+		element = GenerateIFrame(element);
+		
+		for (var count2 = 0; count2 < 200; count2++)
+		{			
+			var element2;
+			element2 = GenerateDiv(element.doc.body);
+			if(count == 1 && count2 == 100)
+			{
+				GenerateAnswer(element.doc.body);
+			}
+			GenerateSelect(2, element2);
+		}
+	}
+	
+}
+
+
+GeneratePage();
+	
+
+</script>
+</body>
+</html>

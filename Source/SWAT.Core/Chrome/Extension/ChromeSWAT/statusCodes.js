@@ -1,0 +1,30 @@
+﻿SWATStatusCode = {};
+
+/* List of status codes */
+SWATStatusCode.ATTRIBUTEERROR = 34; 				// Failed to get or set an element's attribute
+SWATStatusCode.BADCOMMAND = 9; 						// Command does not exist
+SWATStatusCode.BADJAVASCRIPT = 17;
+SWATStatusCode.BROWSEREXISTS = 66;                  // AsssertBrowserDoesNotExist error
+SWATStatusCode.CONNECTED = 100; 					// Connection to content script successful
+SWATStatusCode.CONTENTSCRIPTCONNECTFAIL = 408; 		// Failed to connect to the content script
+SWATStatusCode.CONTENTSCRIPTERROR = 2; 				// Content script encountered an error
+SWATStatusCode.CONTENTSCRIPTDISCONNECTED = 409;     // The content script disconnected while executing a command
+SWATStatusCode.ELEMENTDOESNOTEXIST = 7; 			// Failed to find specified element
+SWATStatusCode.ELEMENTNOTACTIVE = 82;
+SWATStatusCode.ELEMENTNOTVISIBLE = 11;
+SWATStatusCode.INVALIDELEMENTSTATE = 12;
+SWATStatusCode.LOADING = 33;                        // Browser status is currently loading
+SWATStatusCode.NAVIGATEFAIL = 404; 					// Failed to navigate page
+SWATStatusCode.NOATTACHEDWINDOW = 14;           	// No SWAT.activePort is set in the background.js
+SWATStatusCode.NOSUCHFRAME = 8;
+SWATStatusCode.NOSUCHWINDOW = 3; 					// Failed to find a window
+SWATStatusCode.PORTDISCONNECTED = 92;
+SWATStatusCode.STALEELEMENTREFERENCE = 10;
+SWATStatusCode.SUCCESS = 0; 						// Command successfully called
+SWATStatusCode.TOPWINDOWMISMATCH = 867;
+SWATStatusCode.UNDEFINEDTITLE = 15; 				// Tried to get an undefined document title
+SWATStatusCode.UNDEFINEDURL = 19;
+SWATStatusCode.UNHANDLEDERROR = 13;
+SWATStatusCode.UNSUPPORTEDCOMMAND = -1				// Unsupported command detected
+SWATStatusCode.UNSUPPORTEDEVENT = 4;				// Unsupported event
+SWATStatusCode.WINDOWINDEXOUTOFBOUNDS = 5; 			// Attach to window by index out of bounds

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+    <title>KeyEvent Test Page</title>
+    
+    <script language="javascript" type="text/javascript">
+    
+        function testAltCombinations(eventObj) {
+            if (eventObj.altKey == 1) {
+                if (eventObj.keyCode == 81)
+                    document.getElementById('altQResults').innerHTML = 'Passed';
+                else if (eventObj.keyCode == 49)
+                    document.getElementById('alt1Results').innerHTML = 'Passed';
+                else if (eventObj.keyCode == 112)
+                    document.getElementById('altF1Results').innerHTML = 'Failed';
+            }
+        }
+        
+    </script>
+</head>
+
+<body>
+    <table id="altComboTests" bgcolor="aqua" style="border-style:solid; border-width:thin;">
+        <tr>
+            <th colspan="2">Alt Combo Tests</th>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text" id="txtAltCombo" onkeyup="testAltCombinations(event)" /></td>
+        </tr>
+        <tr>
+            <td><strong>Test Cases</strong></td><td><strong>Results</strong></td>
+        </tr>
+        <tr>
+            <td>ALT+Q</td><td id="altQResults"></td>
+        </tr>
+        <tr>
+            <td>ALT+1</td><td id="alt1Results"></td>
+        </tr>
+        <tr>
+            <td>!ALT+F1</td><td id="altF1Results"></td>
+        </tr>
+    </table>
+</body>
+
+</html>

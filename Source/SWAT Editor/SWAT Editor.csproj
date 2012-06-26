@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2BEFCE7A-A936-4C62-9404-E342F10FB23D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SWAT_Editor</RootNamespace>
+    <AssemblyName>SWAT Editor</AssemblyName>
+    <ApplicationIcon>swaticon32.ico</ApplicationIcon>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="fit, Version=1.9.4126.29128, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\fit.dll</HintPath>
+    </Reference>
+    <Reference Include="fitSharp, Version=1.9.4126.29127, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\fitSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SHDocVw, Version=1.1.0.0, Culture=neutral, PublicKeyToken=e946295fdb1a818d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Interop.SHDocVw.dll</HintPath>
+    </Reference>
+    <Reference Include="MbUnit.Framework, Version=1.0.2768.20906, Culture=neutral, PublicKeyToken=5e72ecd30bc408d5" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutForm.designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\SyntaxHighlighting\SyntaxHighlightingSection.cs" />
+    <Compile Include="Controls\DDEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DDEditor.Designer.cs">
+      <DependentUpon>DDEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DDEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DDEditorForm.Designer.cs">
+      <DependentUpon>DDEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlOutput.cs" />
+    <Compile Include="Menus\BrowserSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menus\BrowserSettings.Designer.cs">
+      <DependentUpon>BrowserSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommandEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CommandEditor.Designer.cs">
+      <DependentUpon>CommandEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommandList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CommandList.Designer.cs">
+      <DependentUpon>CommandList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\DatabaseSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menus\DatabaseSettings.Designer.cs">
+      <DependentUpon>DatabaseSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DBBuilder\DBBuilder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DBBuilder\DBBuilder.Designer.cs">
+      <DependentUpon>DBBuilder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DBBuilder\ColumnEditor\ColumnEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\DBBuilder\ColumnEditor\ColumnEditor.Designer.cs">
+      <DependentUpon>ColumnEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\EditorSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menus\EditorSettings.Designer.cs">
+      <DependentUpon>EditorSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EditorVariableRetriever.cs" />
+    <Compile Include="Controls\Explorer\DataItems\DirectoryFile.cs" />
+    <Compile Include="Controls\Explorer\DataItems\DirectoryFolder.cs" />
+    <Compile Include="Controls\Explorer\Datasources\Directory.cs" />
+    <Compile Include="Controls\Explorer\Explorer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Explorer\Explorer.Designer.cs">
+      <DependentUpon>Explorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Explorer\Factory.cs" />
+    <Compile Include="Controls\Explorer\Interfaces.cs" />
+    <Compile Include="Menus\FitnesseSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menus\FitnesseSettings.Designer.cs">
+      <DependentUpon>FitnesseSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Options Control\OptionsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Options Control\OptionsControl.Designer.cs">
+      <DependentUpon>OptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Options Control\SettingsDataEntity.cs" />
+    <Compile Include="Controls\Recorder\UnsupportedHTMLAttributes\ConfigurationSections.cs" />
+    <Compile Include="Controls\Recorder\UnsupportedHTMLAttributes\UnsupportedHTMLAttributesSection.cs" />
+    <Compile Include="Controls\Recorder\UserActivityHook.cs" />
+    <Compile Include="Menus\ScreenshotSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menus\ScreenshotSettings.Designer.cs">
+      <DependentUpon>ScreenshotSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\SwatSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menus\SwatSettings.Designer.cs">
+      <DependentUpon>SwatSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TabControlExtension.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabPageExtension.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FindReplaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindReplaceForm.Designer.cs">
+      <DependentUpon>FindReplaceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FitnesseEngine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FitnesseEngine.Designer.cs">
+      <DependentUpon>FitnesseEngine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Recorder\AssertionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Recorder\AssertionForm.Designer.cs">
+      <DependentUpon>AssertionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Recorder\BeginRecordingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Recorder\BeginRecordingDialog.Designer.cs">
+      <DependentUpon>BeginRecordingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Recorder\HtmlElement.cs" />
+    <Compile Include="Controls\Recorder\IGenerator.cs" />
+    <Compile Include="Controls\Recorder\ScriptBuilder.cs" />
+    <Compile Include="Controls\Recorder\WebBrowserEvents.cs" />
+    <Compile Include="Controls\TextEditor\CompletionListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TextEditor\DocumentTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TextEditor\IAutoCompleteProvider.cs" />
+    <Compile Include="Controls\TextEditor\SyntaxHighlightingRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TextEditor\TextEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TextEditor\TextEditor.Designer.cs">
+      <DependentUpon>TextEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateSnippetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateSnippetForm.Designer.cs">
+      <DependentUpon>CreateSnippetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Recorder\HTMLEvents.cs" />
+    <Compile Include="Controls\Recorder\IERecorder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Recorder\IERecorder.Designer.cs">
+      <DependentUpon>IERecorder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WorkSpaceTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WorkSpaceTree.Designer.cs">
+      <DependentUpon>WorkSpaceTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBBuilderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBBuilderForm.Designer.cs">
+      <DependentUpon>DBBuilderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpenWindows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenWindows.Designer.cs">
+      <DependentUpon>OpenWindows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionsForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsForm2.Designer.cs">
+      <DependentUpon>OptionsForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DDEditor.resx">
+      <DependentUpon>DDEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DDEditorForm.resx">
+      <DependentUpon>DDEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\BrowserSettings.resx">
+      <DependentUpon>BrowserSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommandEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CommandEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommandList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CommandList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\DatabaseSettings.resx">
+      <DependentUpon>DatabaseSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DBBuilder\DBBuilder.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DBBuilder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DBBuilder\ColumnEditor\ColumnEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ColumnEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\EditorSettings.resx">
+      <DependentUpon>EditorSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Explorer\Explorer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Explorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\FitnesseSettings.resx">
+      <DependentUpon>FitnesseSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Options Control\OptionsControl.resx">
+      <DependentUpon>OptionsControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\ScreenshotSettings.resx">
+      <DependentUpon>ScreenshotSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\SwatSettings.resx">
+      <DependentUpon>SwatSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindReplaceForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FindReplaceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FitnesseEngine.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FitnesseEngine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Recorder\AssertionForm.resx">
+      <DependentUpon>AssertionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Recorder\BeginRecordingDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BeginRecordingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TextEditor\TextEditor.resx">
+      <DependentUpon>TextEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateSnippetForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CreateSnippetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WorkSpaceTree.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>WorkSpaceTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DBBuilderForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DBBuilderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenWindows.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OpenWindows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsForm2.resx">
+      <DependentUpon>OptionsForm2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecorderFloatingToolbar.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RecorderFloatingToolbar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBugForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ReportBugForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveDialog.resx">
+      <DependentUpon>SaveDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInputPopup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UserInputPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Menus\obj\app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Controls\CommandExtractor.cs" />
+    <Compile Include="RecentFilesHandler.cs" />
+    <Compile Include="RecorderFloatingToolbar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecorderFloatingToolbar.Designer.cs">
+      <DependentUpon>RecorderFloatingToolbar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBugForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportBugForm.Designer.cs">
+      <DependentUpon>ReportBugForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SaveDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveDialog.Designer.cs">
+      <DependentUpon>SaveDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="UserInputPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInputPopup.Designer.cs">
+      <DependentUpon>UserInputPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SWAT.AbstractionEngine\SWAT.AbstractionEngine.csproj">
+      <Project>{08A87CCA-432F-4B90-AED8-6DA6FC5E6EC3}</Project>
+      <Name>SWAT.AbstractionEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SWAT.Core\SWAT.Core.csproj">
+      <Project>{8EA71CD5-5A95-4CFA-9C71-F89FB6AFD1AE}</Project>
+      <Name>SWAT.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SWAT.DynamicHelp\SWAT.DynamicHelp.csproj">
+      <Project>{6F34F032-219E-4617-AF65-69817662CB3C}</Project>
+      <Name>SWAT.DynamicHelp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SWAT.Fitnesse\SWAT.Fitnesse.csproj">
+      <Project>{AA9BB2B7-D223-4DB9-990D-6CD4FEE796E9}</Project>
+      <Name>SWAT.Fitnesse</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SWAT.Auto_Complete\SWAT.Auto_Complete.csproj">
+      <Project>{6037D5EE-52FB-4DBF-A87D-31A9AEA329EE}</Project>
+      <Name>SWAT.Auto_Complete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SWAT.Utilities\SWAT.Utilities.csproj">
+      <Project>{576638EB-FC9E-49F4-AE55-C31DD3CFEE11}</Project>
+      <Name>SWAT.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\SWAT_Editor.Controls.Options_Control.SettingsDataEntity.datasource" />
+    <None Include="Resources\swaticon32.ico" />
+    <None Include="Resources\folder-closed-blue.png" />
+    <None Include="Resources\doc-plain-orange.png" />
+    <Content Include="Resources\16-control-pause.png" />
+    <Content Include="Resources\16-control-play.png" />
+    <Content Include="Resources\16-control-record.png" />
+    <Content Include="Resources\16-control-stop.png" />
+    <None Include="Resources\accessories-calculator.png" />
+    <None Include="Resources\document-open.png" />
+    <None Include="Resources\close.jpg" />
+    <None Include="Resources\Close3 Inactive.png" />
+    <None Include="Resources\Close2 Active.png" />
+    <None Include="Resources\Close2 Inactive.png" />
+    <None Include="Resources\Close3 Active.png" />
+    <Content Include="Resources\drive-icon.PNG" />
+    <None Include="Resources\edit-find.png" />
+    <None Include="Resources\edit-find-replace.png" />
+    <None Include="Resources\emblem-unreadable inactive.png" />
+    <Content Include="Resources\file-icon.PNG" />
+    <Content Include="Resources\folder-icon.PNG" />
+    <None Include="Resources\folder.png" />
+    <Content Include="Resources\magnifying_glass.png" />
+    <None Include="Resources\media-floppy.png" />
+    <Content Include="Resources\network-icon.PNG" />
+    <None Include="Resources\system-file-manager.png" />
+    <None Include="Resources\system-log-out.png" />
+    <None Include="Resources\view-refresh.png" />
+    <Content Include="swaticon32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MSHTML">
+      <Guid>{3050F1C5-98B5-11CF-BB82-00AA00BDCE0B}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

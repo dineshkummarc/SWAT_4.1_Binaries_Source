@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>		
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Sightless User Test Page</title>
+		<style type="text/css">
+            .noninlinestyletestclass
+            {
+        	    color:Fuchsia;
+        	    height:100px;
+        	    top:10px;
+        	    border:solid;
+            }
+        </style>
+		<script language="javascript" type="text/javascript">
+		    function testAlert()
+		    {
+		        if (confirm("Please press Ok or Cancel"))
+		            document.getElementById("txtOne").value = 'Ok';
+		        else
+		            document.getElementById("txtOne").value = 'Cancel';
+		    }
+
+		    function setTextBoxValue()
+		    {
+		        document.getElementById('txtOne').value = 'Test1';
+		    }
+
+		    function clearTextBoxValue()
+		    {
+		        document.getElementById('txtOne').value = '';
+		    }
+		    
+		    function displayOptionValue(element)
+		    {
+		        document.getElementById('optionLabel').innerHTML = element.value;
+		    }
+
+		    function isEmployee() {
+		        var status = document.getElementById('ctl00_Content_AddHideBehavior').value;
+		        var empStatus = document.getElementById('employeeStatus');
+		        var hours = document.getElementById('txtHours');
+		        if (status == "True") {
+		            empStatus.disabled = false;
+		            hours.disabled = false;
+		        }
+		        else {
+		            empStatus.disabled = true;
+		            hours.disabled = true;
+		        }
+		    }
+	    </script>
+	</head>
+	<body class="newclass">
+        <div id="testPageElementCopiesDiv" style="border-width:1px; border-style:dashed; border-color:Red;" >
+            <p>***********    DO NOT MODIFY THIS PAGE ****************</p>
+	        <table>
+	            <tr>
+	                <td id="td1" name="td1Name" style="width: 491px" >
+	                    <input type="button" id="btnSetVal" value="Set Value" onclick="setTextBoxValue();" />
+                        <input type="button" id="btnClear" value="Clear Value" onclick="clearTextBoxValue();" />
+                        <input type="text"	id="txtOne" name="txtName"/>  
+                        <input type="checkbox" id="chkOne" value="check1"/>    
+	                </td>
+	            </tr>
+	            <tr>
+	                <td style="width: 491px">
+	                    <input type="button" id="btnNewWindow" onclick="window.open('TestOpenWindowPage.htm');" value="Open new window" />&nbsp;
+	                    <input type="button" id="btnAlert" onclick="testAlert();" value="Opens an alert box" />
+                    </td>
+	            </tr>
+	            <tr>
+	                <td style="width: 491px">
+	                    <select id="cmbOne" onchange="displayOptionValue(this);">
+	                        <option value="value1">option 1</option>
+	                        <option value="value2">option 2</option>
+	                    </select>
+	                    <label id="optionLabel"></label>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td style="width: 491px"><textarea id="txtAreaOne" ></textarea></td>
+	            </tr>
+             </table>
+	        <a href="http://www.google.com">Google</a>
+        </div>
+        <br />
+        <div id="nestedFramesTestDiv">
+            <iframe id="nestedPressKeysPageFrame" src="NestedPressKeysPage.htm" style="width:640px; height:480px"></iframe>
+        </div>
+   	</body>
+</html>

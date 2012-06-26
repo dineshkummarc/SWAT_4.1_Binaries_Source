@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Close Window Page</title>
+		<script language="javascript" type="text/javascript">
+
+		    function closeWindow() 
+		    {
+		        if (confirm("Close Window?"))
+		            window.close();
+		    }
+
+		    function closeBrowser() {
+		        /*for (var i = 0; i < 10000000000000000000; i++) {
+		            // Simulate a long javascript function
+		            var e = 783 * i;
+		        }*/
+		        window.close();
+		    }
+        </script>
+	</head>
+	<body>
+	    <input type="button" id="btnCloseWindow" onclick="closeWindow();" value="Closes this window w/ dialog" />
+        <br />
+        <input type="button" id="btnCloseBrowser" onclick="closeBrowser();" value="Closes this window" />
+   	</body>
+</html>

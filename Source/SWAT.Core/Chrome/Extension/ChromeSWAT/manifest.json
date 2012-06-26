@@ -1,0 +1,24 @@
+{
+	"name": "ChromeSWAT",
+	"version": "1.0",
+	"description": "A Chrome extensions to interact with SWAT.",
+	"browser_action": 
+		{
+			"default_title": "SWAT",
+			"default_icon": "icons/free.png"
+		},
+	"background_page": "background.html",
+	"content_scripts":
+		[
+			{
+				"matches": ["http://*/*", "https://*/*", "file://*/*", "ftp://*/*"],
+				"js": ["statusCodes.js", "utilities.js", "jquery.js", "contentscript.js"],
+				"run_at": "document_end",
+				"all_frames": true
+			}
+		],
+	"permissions":
+		[
+			"tabs", "http://*/*", "https://*/*"
+		]
+}
